@@ -1,5 +1,8 @@
 {
-    "english": {
-        
+    "en": {
+        "Dashboard": "Dashboard"
+    },
+    "ch": {
+        "Dashboard": "控制面板"
     }
 }
