@@ -62,7 +62,7 @@ function App() {
               }
               <Menu
                 keepMounted
-                open={menuSwith}
+                open={Boolean(menuSwith)}
                 anchorEl={menuSwith}
                 onClose={() => {
                   setMenuSwith(false);
@@ -76,9 +76,18 @@ function App() {
                   vertical: 'top',
                   horizontal: 'center',
                 }}
+                classes={{
+                  list: 'Menu-style-list'
+                }}
+                PopoverClasses={{
+                  paper: 'Menu-style'
+                }}
               >
                 <MenuItem>
-                  <ListItemText primary="Sent mail" />
+                  dsd
+                </MenuItem>
+                <MenuItem>
+                  Logout
                 </MenuItem>
               </Menu>
             </div>
