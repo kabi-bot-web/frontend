@@ -5,7 +5,9 @@ import Button from '@material-ui/core/Button';
 import Avatar from '@material-ui/core/Avatar';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import { withStyles } from '@material-ui/core/styles';
 import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import Home from './components/home';
@@ -16,7 +18,11 @@ function App() {
   const [userData, setUserData] = useState({ name: 'ww', 'id': '458988300418416640', 'avatar': '31d2892e691d2c983dc6851d8a94472d', });
   const [menuSwith, setMenuSwith] = useState(false);
 
-
+  const StyleMenu = withStyles({
+    paper: {
+      backgroundColor: '#424242'
+    }
+  })((props) => <Menu {...props} />)
   return (
     <Router>
       <UserData.Provider value={{ userData, setUserData }}>
@@ -60,7 +66,7 @@ function App() {
                   </Button>
                 )
               }
-              <Menu
+              <StyleMenu
                 keepMounted
                 open={Boolean(menuSwith)}
                 anchorEl={menuSwith}
@@ -76,20 +82,11 @@ function App() {
                   vertical: 'top',
                   horizontal: 'center',
                 }}
-                classes={{
-                  list: 'Menu-style-list'
-                }}
-                PopoverClasses={{
-                  paper: 'Menu-style'
-                }}
               >
-                <MenuItem>
-                  dsd
+                <MenuItem style={{color: '#A72A39', fontWeight: 'bold'}}>
+                    Logout
                 </MenuItem>
-                <MenuItem>
-                  Logout
-                </MenuItem>
-              </Menu>
+              </StyleMenu>
             </div>
 
             <Switch>
@@ -97,6 +94,7 @@ function App() {
                 <Home />
               </Route>
             </Switch>
+            
           </div>
         </Login.Provider>
       </UserData.Provider>
