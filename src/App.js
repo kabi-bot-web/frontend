@@ -1,105 +1,55 @@
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
-import { UserData, Login } from './components/js/Context';
+import { UserData, Login, Lan } from './components/js/Context';
 import { useState } from 'react';
-import Button from '@material-ui/core/Button';
-import Avatar from '@material-ui/core/Avatar';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import { withStyles } from '@material-ui/core/styles';
-import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import LoginButton from './components/loginButton';
 import Home from './components/home';
+import { userAPI } from './components/js/api';
 import './App.sass';
 
 function App() {
-  const [login, setLogin] = useState(true);
-  const [userData, setUserData] = useState({ name: 'ww', 'id': '458988300418416640', 'avatar': '31d2892e691d2c983dc6851d8a94472d', });
-  const [menuSwith, setMenuSwith] = useState(false);
+    // test data
+    const [login, setLogin] = useState(true);
+    const [userData, setUserData] = useState(
+        { "id": "458988300418416640", "username": "xiao xigua", "avatar": "31d2892e691d2c983dc6851d8a94472d", "discriminator": "8787", "public_flags": 64, "flags": 64, "locale": "zh-TW", "mfa_enabled": true, "premium_type": 2 }
+    );
+    const [lan, setLan] = useState('ch');
 
-  const StyleMenu = withStyles({
-    paper: {
-      backgroundColor: '#424242'
-    }
-  })((props) => <Menu {...props} />)
-  return (
-    <Router>
-      <UserData.Provider value={{ userData, setUserData }}>
-        <Login.Provider value={{ login, setLogin }}>
-          <div className="App">
-            <ul id="navbar">
-              <li id="Title">
-                <Link to="/">KABI</Link>
-              </li>
-              <li>
-                <Link to="/dashboard">Dashboard</Link>
-              </li>
+    userAPI.get('').then(req => {
+        if (!req.data.error) {
+            setUserData(req.data.data);
+            setLogin(true);
+        }
+    });
 
-            </ul>
+    return (
+        <Router>
+            <UserData.Provider value={{ userData, setUserData }}>
+                <Login.Provider value={{ login, setLogin }}>
+                    <Lan.Provider value={{ lan, setLan }}>
+                        <div className="App">
+                            <ul id="navbar">
+                                <li id="Title">
+                                    <Link to="/">KABI</Link>
+                                </li>
+                                <li>
+                                    <Link to="/dashboard">Dashboard</Link>
+                                </li>
+                            </ul>
 
-            <div id="Login">
-              {
-                login ? (
-                  <Button
-                    color="primary"
-                    size="medium"
-                    startIcon={
-                      <Avatar
-                        alt="Avatar"
-                        style={{ width: '30px', height: '30px' }}
-                        src={`https://cdn.discordapp.com/avatars/${userData.id}/${userData.avatar}.png`}
-                      />
-                    }
-                    endIcon={
-                      menuSwith ? (<ArrowDropDownIcon />) : (<ArrowLeftIcon />)
-                    }
-                    onClick={(event) => {
-                      setMenuSwith(event.currentTarget);
-                    }}
-                  >
-                    {userData.name}
-                  </Button>
-                ) : (
-                  <Button variant="contained" size="medium" color="primary" href="/user/authorize" >
-                    Login
-                  </Button>
-                )
-              }
-              <StyleMenu
-                keepMounted
-                open={Boolean(menuSwith)}
-                anchorEl={menuSwith}
-                onClose={() => {
-                  setMenuSwith(false);
-                }}
-                getContentAnchorEl={null}
-                anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'center',
-                }}
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'center',
-                }}
-              >
-                <MenuItem style={{color: '#A72A39', fontWeight: 'bold'}}>
-                    Logout
-                </MenuItem>
-              </StyleMenu>
-            </div>
+                            <LoginButton />
 
-            <Switch>
-              <Route path="/">
-                <Home />
-              </Route>
-            </Switch>
-            
-          </div>
-        </Login.Provider>
-      </UserData.Provider>
-    </Router>
-  );
+                            <Switch>
+                                <Route path="/">
+                                    <Home />
+                                </Route>
+                            </Switch>
+
+                        </div>
+                    </Lan.Provider>
+                </Login.Provider>
+            </UserData.Provider>
+        </Router>
+    );
 }
 
 export default App;
