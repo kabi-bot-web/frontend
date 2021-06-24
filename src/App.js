@@ -3,6 +3,7 @@ import { UserData, Login, Lan } from './components/js/Context';
 import { useState } from 'react';
 import LoginButton from './components/loginButton';
 import Home from './components/home';
+import Dashboard from './components/dashboard';
 import { userAPI } from './components/js/api';
 import './App.sass';
 
@@ -39,9 +40,8 @@ function App() {
                             <LoginButton />
 
                             <Switch>
-                                <Route path="/">
-                                    <Home />
-                                </Route>
+                                <Route exact path="/" component={Home} />
+                                <Route exact path="/dashboard" component={Dashboard} />
                             </Switch>
 
                         </div>
