@@ -43,7 +43,7 @@ const LoginButton = () => {
                         }}
                         style={{ textTransform: 'none' }}
                     >
-                        {userData.username}
+                        <span id="User-name">{userData.username}</span>
                     </Button>
                 ) : (
                     <Button variant="contained" size="medium" color="primary" href="/user/authorize" >
@@ -68,7 +68,7 @@ const LoginButton = () => {
                     horizontal: 'center',
                 }}
             >
-                <MenuItem 
+                <MenuItem
                     style={{ color: '#A72A39' }}
                     onClick={() => {
                         userAPI.get("/logout").then(req => {

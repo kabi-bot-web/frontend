@@ -28,16 +28,20 @@ function App() {
                 <Login.Provider value={{ login, setLogin }}>
                     <Lan.Provider value={{ lan, setLan }}>
                         <div className="App">
-                            <ul id="navbar">
-                                <li id="Title">
-                                    <Link to="/">KABI</Link>
-                                </li>
-                                <li>
-                                    <Link to="/dashboard">Dashboard</Link>
-                                </li>
-                            </ul>
+                            <div id="navbar">
+                                <div id="Title"><Link to="/">KABI</Link></div>
+                                <ul id="navbar-list">
+                                    <li>
+                                        <Link to="/dashboard">Dashboard</Link>
+                                    </li>
+                                </ul>
+                                <div id="navbar-list-button">
+                                    <input type="checkbox" />
+                                    <div></div>
+                                </div>
+                                <LoginButton />
+                            </div>
 
-                            <LoginButton />
 
                             <Switch>
                                 <Route exact path="/" component={Home} />

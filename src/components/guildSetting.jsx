@@ -4,7 +4,10 @@ const Guild = () => {
     const { id } = useParams();
     return (
         <div>
-            {id}
+            <div className="Side-menu">
+            </div>
+            <div className="setting">
+            </div>
         </div>
     );
 };

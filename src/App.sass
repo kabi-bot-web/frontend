@@ -2,8 +2,11 @@
     width: 100%
     height: 100%
     background-color: #24252A
+
 #navbar
-    width: 100%
+    height: 73px
+
+#navbar-list
     position: relative
     display: inline-block
     margin: 0
@@ -23,14 +26,85 @@
     li
         margin-left: 20px
         display: inline-block
+    @media screen and ( max-width: 414px )
+        opacity: 0
+        position: absolute
+        left: 0
 
-    #Title
-        margin: 20px 20px 0 20px
-        font-size: 25px
-        font-weight: bold
-        a
-            &:link, &:hover, &:visited, &:active
-                color: #ffff
+#navbar-list-button
+    position: absolute
+    align-items: center
+    justify-content: center
+    display: flex
+
+    &, div, input
+        width: 0
+        height: 0
+        opacity: 0
+
+    @media screen and ( max-width: 414px )
+        opacity: 1
+        width: 20px
+        height: 20px
+        margin-left: 20px
+        padding-top: 30px
+        div
+            &::after, &::before, &
+                content: ''
+                opacity: 1
+                background-color: #ffff
+                position: absolute
+                width: 100%
+                height: 2px
+                transition: .5s
+
+            &::before
+                top: 7px
+            &::after
+                top: -7px
+        input
+            opacity: 1
+            z-index: 3
+            position: absolute
+            margin: 0
+            padding: 0
+            width: 20px
+            height: 20px
+            opacity: 0
+            &:checked + div
+                transform: rotate(135deg)
+
+            &:checked + div::before, &:checked + div::after
+                top: 0
+                transform: rotate(90deg)
+            &:checked:hover + div
+                transform: rotate(225deg)
+            &:checked:hover + div::before, &:checked:hover + div::after
+                top: 0
+                transform: rotate(90deg)
+            &:checked + #navbar-list
+                opacity: 1
+                left: 20px
+                
+            
+
+#Title
+    display: inline-block
+    -webkit-user-select: none
+    margin: 20px 20px 0 20px
+    font-size: 25px
+    font-weight: bold
+    a
+        text-decoration: none
+        &:link, &:hover, &:visited, &:active
+            color: #ffff
+
+    @media screen and ( max-width: 414px )
+        margin: 0
+        position: absolute
+        left: 50%
+        top: 20px
+        transform: translate(-50%, 0)
 
 #Login
     position: absolute
@@ -41,3 +115,8 @@
         color: #ffff
         &:link, &:hover, &:visited, &:active
             color: #ffff
+    #User-name
+        @media screen and ( max-width: 414px )
+            width: 0
+            height: 0
+            overflow: hidden
