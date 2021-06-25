@@ -24,7 +24,8 @@ const Guilds = ({ guilds }) => {
                                                 src={
                                                     value.icon === undefined ? '' :
                                                         "https://cdn.discordapp.com/icons/" +
-                                                        `${value.id}/${value.icon}.${value.icon.startsWith("a_") ? "gif" : "png"}`
+                                                        `${value.id}/${value.icon}` +
+                                                        `.${value.icon.startsWith("a_") ? "gif" : "png"}`
                                                 }
                                                 style={{
                                                     width: '40px',
@@ -41,7 +42,7 @@ const Guilds = ({ guilds }) => {
                                             width: '100%',
                                             color: '#ffff',
                                             padding: '10px 0',
-                                            paddingLeft: '10px'
+                                            paddingLeft: '20px'
                                         }}
                                     >
                                         <span className="text">
