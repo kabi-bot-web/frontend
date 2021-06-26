@@ -14,6 +14,7 @@ function App() {
         { "id": "458988300418416640", "username": "xiao xigua", "avatar": "31d2892e691d2c983dc6851d8a94472d", "discriminator": "8787", "public_flags": 64, "flags": 64, "locale": "zh-TW", "mfa_enabled": true, "premium_type": 2 }
     );
     const [lan, setLan] = useState('ch');
+    const [navbar, setNavbar] = useState(false);
 
     userAPI.get('').then(req => {
         if (!req.data.error) {
@@ -30,13 +31,18 @@ function App() {
                         <div className="App">
                             <div id="navbar">
                                 <div id="Title"><Link to="/">KABI</Link></div>
-                                <ul id="navbar-list">
+                                <ul id="navbar-list" style={{ left: navbar ? '0' : '-50%' }}>
                                     <li>
                                         <Link to="/dashboard">Dashboard</Link>
                                     </li>
+
                                 </ul>
                                 <div id="navbar-list-button">
-                                    <input type="checkbox" />
+                                    <input type="checkbox"
+                                        onClick={() => {
+                                            setNavbar(!navbar);
+                                        }}
+                                    />
                                     <div></div>
                                 </div>
                                 <LoginButton />
