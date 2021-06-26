@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 import { UserData, Login, Lan } from './components/js/Context';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import LoginButton from './components/loginButton';
 import Home from './components/home';
 import Dashboard from './components/dashboard';
@@ -15,24 +15,27 @@ function App() {
     );
     const [lan, setLan] = useState('ch');
     const [navbar, setNavbar] = useState(false);
+    useEffect(() => {
+        userAPI.get('').then(req => {
+            if (!req.data.error) {
+                setUserData(req.data.data);
+                setLogin(true);
+            }
+        });
+    }, []);
 
-    userAPI.get('').then(req => {
-        if (!req.data.error) {
-            setUserData(req.data.data);
-            setLogin(true);
-        }
-    });
+
 
     return (
         <Router>
             <UserData.Provider value={{ userData, setUserData }}>
                 <Login.Provider value={{ login, setLogin }}>
                     <Lan.Provider value={{ lan, setLan }}>
-                        <div className="App">
+                        <div className="App" >
                             <div id="navbar">
                                 <div id="Title"><Link to="/">KABI</Link></div>
                                 <ul id="navbar-list" style={{ left: navbar ? '0' : '-50%' }}>
-                                    <li>
+                                    <li onClick={() => {setNavbar(false)}}>
                                         <Link to="/dashboard">Dashboard</Link>
                                     </li>
 
@@ -42,6 +45,7 @@ function App() {
                                         onClick={() => {
                                             setNavbar(!navbar);
                                         }}
+                                        checked={navbar ? 'checked' : ''}
                                     />
                                     <div></div>
                                 </div>

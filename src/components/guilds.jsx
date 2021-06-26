@@ -15,7 +15,7 @@ const Guilds = ({ guilds }) => {
                 {
                     guilds.map((value) => {
                         return (
-                            <div className="guild">
+                            <div className="guild" key={value.id}>
                                 <Link to={`${match.path}/${value.id}`}>
                                     <Button
                                         startIcon={
