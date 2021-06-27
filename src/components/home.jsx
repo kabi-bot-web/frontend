@@ -10,6 +10,10 @@ const Home = () => {
 
     return (
         <div id="Home">
+            <div id="text">
+                <span>Build the best Discord Server!</span>
+            </div>
+
             <img src={kabiImg} alt="" />
             <div className="JoinButtons">
                 <Button
@@ -28,6 +32,30 @@ const Home = () => {
                 >
                     {homeLan[lan]["Join"]}
                 </Button>
+            </div>
+            <div className="Description">
+                <span>24小時上線</span>
+                <p>
+                    隨時隨地，打開Discord即可享受音樂
+                    我們會確保機器人24小時都會上線，並且提供最低的延遲以及離線時間
+                </p>
+
+            </div>
+            <div className="Description">
+                <span>再也不怕忘記指令</span>
+                <p>
+                    可用斜線指令!
+                    有了斜線指令，即便您忘記了怎麼使用機器人，只需輸入一個斜線就可以享受您的專屬指令時間!
+                </p>
+
+            </div>
+            <div className="Description">
+                <span>在幾秒鐘內開始播放音樂</span>
+                <p>
+                    您不需要等太久!
+                    您只需要輸入指令，機器人將會在幾毫秒之内回應!
+                </p>
+
             </div>
         </div>
     );

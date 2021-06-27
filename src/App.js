@@ -16,6 +16,16 @@ function App() {
     const [lan, setLan] = useState('ch');
     const [navbar, setNavbar] = useState(false);
     useEffect(() => {
+        window.onscroll = () => {
+            const top = document.documentElement.scrollTop || document.body.scrollTop;
+            for(let i of document.getElementsByClassName("Description")) {
+                if (i.offsetTop - document.body.clientHeight >= top) {
+                    i.style = "margin: 40vh 0;"
+                } else {
+                    i.style = "margin: 30vh 0;"
+                }
+            }
+        }
         userAPI.get('').then(req => {
             if (!req.data.error) {
                 setUserData(req.data.data);
@@ -24,21 +34,22 @@ function App() {
         });
     }, []);
 
-
+    const navbarClose = () => {
+        setNavbar(false)
+    }
 
     return (
         <Router>
             <UserData.Provider value={{ userData, setUserData }}>
                 <Login.Provider value={{ login, setLogin }}>
                     <Lan.Provider value={{ lan, setLan }}>
-                        <div className="App" >
+                        <div className="App">
                             <div id="navbar">
                                 <div id="Title"><Link to="/">KABI</Link></div>
                                 <ul id="navbar-list" style={{ left: navbar ? '0' : '-50%' }}>
-                                    <li onClick={() => {setNavbar(false)}}>
+                                    <li onClick={navbarClose}>
                                         <Link to="/dashboard">Dashboard</Link>
                                     </li>
-
                                 </ul>
                                 <div id="navbar-list-button">
                                     <input type="checkbox"
@@ -51,7 +62,6 @@ function App() {
                                 </div>
                                 <LoginButton />
                             </div>
-
 
                             <Switch>
                                 <Route exact path="/" component={Home} />

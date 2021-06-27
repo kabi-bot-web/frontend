@@ -1,12 +1,12 @@
 #Home
     width: 100%
-    height: calc(100% - 73px)
+    background-color: #24252A
     img
         max-width: 384px
         width: 100%
         display: block
         margin: 0 auto
-        padding-top: 10%
+        padding-top: 5%
         -webkit-user-select: none
 
     .JoinButtons
@@ -19,3 +19,28 @@
             @media screen and ( min-width: 833px )
                 width: 20%
                 margin: 0 15%
+        @media screen and ( max-width: 414px )
+            padding-top: 50px
+
+
+    #text
+        padding-top: 60px
+        font-size: 35px
+        text-align: center
+        color: #ffff
+        font-weight: bold
+        @media screen and ( max-width: 414px )
+            padding-top: 20px
+            font-size: 20px
+            
+    
+    .Description
+        margin: 40vh 0
+        transition: .4s
+        color: #ffff
+        span
+            font-size: 26px
+            font-weight: bold
+            margin-left: 3%
+        p
+            margin-left: 3%
