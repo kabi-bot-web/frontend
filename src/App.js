@@ -18,8 +18,9 @@ function App() {
     useEffect(() => {
         window.onscroll = () => {
             const top = document.documentElement.scrollTop || document.body.scrollTop;
+            console.log(top);
             for(let i of document.getElementsByClassName("Description")) {
-                if (i.offsetTop - document.body.clientHeight >= top) {
+                if (i.offsetTop - window.innerHeight >= top) {
                     i.style = "margin: 40vh 0;"
                 } else {
                     i.style = "margin: 30vh 0;"
