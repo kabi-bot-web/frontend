@@ -8,4 +8,7 @@ body, html, #root {
   padding: 0;
   width: 100%;
   background-color: #24252A;
+  min-width: 100%;
+  min-height: 100%;
+  height: 100%;
 }

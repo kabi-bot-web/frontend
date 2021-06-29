@@ -46,13 +46,13 @@ function App() {
                     <Lan.Provider value={{ lan, setLan }}>
                         <div className="App">
                             <div id="navbar">
-                                <div id="Title"><Link to="/">KABI</Link></div>
+                                <div id="Title" onClick={navbarClose}><Link to="/">KABI</Link></div>
                                 <ul id="navbar-list" style={{ left: navbar ? '0' : '-50%' }}>
                                     <li onClick={navbarClose}>
                                         <Link to="/dashboard">Dashboard</Link>
                                     </li>
                                 </ul>
-                                <div id="navbar-list-button">
+                                <div id="navbar-list-button" style={{position: navbar ? 'fixed' : 'absolute'}}>
                                     <input type="checkbox"
                                         onClick={() => {
                                             setNavbar(!navbar);
