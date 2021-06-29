@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
-import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import './sass/dashboard.sass';
 import Guilds from './guilds';
-import GuildSetting from './guildSetting';
 
 const Dashboard = () => {
     const [guilds, setGuilds] = useState(null);
@@ -13,18 +11,10 @@ const Dashboard = () => {
         }, 5000);
     }, []);
 
-    const match = useRouteMatch();
 
     return (
         <div id="dashboard">
-            <Switch>
-                <Route exact path={`${match.path}`}>
-                    <Guilds guilds={guilds} />
-                </Route>
-                <Route exact path={`${match.path}/:id`}>
-                    <GuildSetting />
-                </Route>
-            </Switch>
+            <Guilds guilds={guilds} />
         </div>
     );
 };

@@ -1,11 +1,9 @@
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 import { UserData, Login, Lan } from './components/js/Context';
 import { useState, useEffect } from 'react';
-import LoginButton from './components/loginButton';
-import Home from './components/home';
-import Dashboard from './components/dashboard';
+import GuildSetting from './components/guildSetting';
 import { userAPI } from './components/js/api';
-import './App.sass';
+import Main from './components/main';
 
 function App() {
     // test data
@@ -14,12 +12,11 @@ function App() {
         { "id": "458988300418416640", "username": "xiao xigua", "avatar": "31d2892e691d2c983dc6851d8a94472d", "discriminator": "8787", "public_flags": 64, "flags": 64, "locale": "zh-TW", "mfa_enabled": true, "premium_type": 2 }
     );
     const [lan, setLan] = useState('ch');
-    const [navbar, setNavbar] = useState(false);
     useEffect(() => {
         window.onscroll = () => {
             const top = document.documentElement.scrollTop || document.body.scrollTop;
             console.log(top);
-            for(let i of document.getElementsByClassName("Description")) {
+            for (let i of document.getElementsByClassName("Description")) {
                 if (i.offsetTop - window.innerHeight >= top) {
                     i.style = "margin: 40vh 0;"
                 } else {
@@ -35,40 +32,17 @@ function App() {
         });
     }, []);
 
-    const navbarClose = () => {
-        setNavbar(false)
-    }
-
     return (
         <Router>
             <UserData.Provider value={{ userData, setUserData }}>
                 <Login.Provider value={{ login, setLogin }}>
                     <Lan.Provider value={{ lan, setLan }}>
                         <div className="App">
-                            <div id="navbar">
-                                <div id="Title" onClick={navbarClose}><Link to="/">KABI</Link></div>
-                                <ul id="navbar-list" style={{ left: navbar ? '0' : '-50%' }}>
-                                    <li onClick={navbarClose}>
-                                        <Link to="/dashboard">Dashboard</Link>
-                                    </li>
-                                </ul>
-                                <div id="navbar-list-button" style={{position: navbar ? 'fixed' : 'absolute'}}>
-                                    <input type="checkbox"
-                                        onClick={() => {
-                                            setNavbar(!navbar);
-                                        }}
-                                        checked={navbar ? 'checked' : ''}
-                                    />
-                                    <div></div>
-                                </div>
-                                <LoginButton />
-                            </div>
-
                             <Switch>
-                                <Route exact path="/" component={Home} />
-                                <Route path="/dashboard" component={Dashboard} />
+                                <Route exact path="/" component={Main} />
+                                <Route exact path="/dashboard" component={Main} />
+                                <Route path="/dashboard/:id" component={GuildSetting} />
                             </Switch>
-
                         </div>
                     </Lan.Provider>
                 </Login.Provider>

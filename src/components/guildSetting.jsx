@@ -5,6 +5,7 @@ const Guild = () => {
     return (
         <div>
             <div className="Side-menu">
+                {id}
             </div>
             <div className="setting">
             </div>
