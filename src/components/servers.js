@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import './sass/dashboard.sass';
 import Guilds from './guilds';
 
-const Dashboard = () => {
+const Servers = () => {
     const [guilds, setGuilds] = useState(null);
     // test data
     useEffect(() => {
@@ -19,4 +19,4 @@ const Dashboard = () => {
     );
 };
 
-export default Dashboard;
+export default Servers;

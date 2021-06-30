@@ -3,7 +3,7 @@ import { UserData, Login } from './js/Context';
 import { useState, useEffect, useContext } from 'react';
 import LoginButton from './loginButton';
 import Home from './home';
-import Dashboard from './dashboard';
+import Servers from './servers';
 import { userAPI } from './js/api';
 import './sass/main.sass';
 
@@ -30,6 +30,7 @@ const Main = () => {
                 setLogin(true);
             }
         });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const navbarClose = () => {
@@ -60,7 +61,7 @@ const Main = () => {
 
             <Switch>
                 <Route exact path="/" component={Home} />
-                <Route exact path="/dashboard" component={Dashboard} />
+                <Route exact path="/dashboard" component={Servers} />
             </Switch>
 
         </div>

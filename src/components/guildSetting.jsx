@@ -1,13 +1,18 @@
 import { useParams } from 'react-router-dom';
+import './sass/guildSetting.sass';
+import LoginButton from './loginButton';
 
 const Guild = () => {
     const { id } = useParams();
     return (
-        <div>
-            <div className="Side-menu">
+        <div id="Guild-dashboard">
+            <div id="navbar">
+                <LoginButton />
+            </div>
+            <div id="Side-menu">
                 {id}
             </div>
-            <div className="setting">
+            <div id="setting">
             </div>
         </div>
     );
