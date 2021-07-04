@@ -1,13 +1,12 @@
 #Dashboard-menu
     position: relative
     height: 100%
-    max-width: 200px
     background-color: #2F3136
-
+    transition: width .3s
     #Menu
         padding: 0
         margin: 0
-        height: calc( 100% - 60px )
+        height: 100%
         width: 100%
         position: relative
         overflow: auto
@@ -19,34 +18,3 @@
             background-color: #202225
             border-radius: 20px
         .Options
-
-
-    #Avatar
-        position: absolute
-        background-color: #292B2F
-        width: 100%
-        left: 0
-        bottom: 0
-        height: 40px
-        padding: 10px 0
-        #Name, #Img, #Exit-icon
-            display: inline-block
-            position: relative
-        
-        #Img
-            margin-left: 10px
-
-        #Name
-            color: #ffff
-            top: -15px
-            left: 10px
-            font-size: 20px
-        #Exit-icon
-            color: #ffff
-            top: -5px
-            left: 20px
-            svg
-                font-size: 30px
-
-            &:hover
-                color: #750606f1

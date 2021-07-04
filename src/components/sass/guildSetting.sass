@@ -1,3 +1,65 @@
 #Guild-dashboard
     height: 100%
     width: 100%
+
+    #Setting
+        position: absolute
+        right: 0
+        top: 0
+        height: 100%
+        transition: .3s
+        #Navbar
+            position: relative
+            width: 100%
+            height: 50px
+            #Menu-button
+                align-items: center
+                justify-content: center
+                display: flex
+                width: 25px
+                height: 25px
+                padding:
+                    left: 30px
+                    top: 27px
+                div
+                    &, &::after, &::before
+                        content: ''
+                        background-color: #ffff
+                        position: absolute
+                        width: 25px
+                        height: 2px
+                        transition: .5s
+                    &::before
+                        top: 10px
+                    &::after
+                        top: -10px
+                input
+                    z-index: 2
+                    opacity: 0
+                    width: 25px
+                    height: 25px
+                    &:checked + div
+                        transform: rotate(135deg)
+                    &:checked + div::before, &:checked + div::after
+                        top: 0
+                        transform: rotate(90deg)
+                    &:checked:hover + div
+                        transform: rotate(225deg)
+                    &:checked:hover + div::before, &:checked:hover + div::after
+                        top: 0
+                        transform: rotate(90deg)
+                    &:checked + #navbar-list
+                        opacity: 1
+                        left: 20px
+                        
+    .Setting-open
+        width: calc( 100% - 200px )
+
+    .Setting-close
+        width: calc( 100% - 87px )
+
+    .Menu-open
+        width: 200px
+    
+    .Menu-close
+        width: 87px
