@@ -30,10 +30,11 @@
                 font-family: 'Mone'
 
                 span
-                    font-size: 16px
+                    font-size: 14px
                     display: inline-block
                     margin-left: 36px
                     margin-top: 10px
+                    white-space: nowrap
                 svg
                     transition: .3s
                     position: absolute
@@ -58,15 +59,17 @@
                 height: 0
                 width: 100%
                 overflow: hidden
-                
-                .Option
-                    width: 100%
-                    height: 40px
-                    display: block
-                    text-decoration: none
-                    text-align: center
-                    position: relative
-                    &:link, &:hover, &:visited, &:active
-                        color: #ffff
 
-                    
+
+.Option
+    width: 100%
+    height: 40px
+    display: block
+    text-decoration: none
+    // text-align: center
+    left: 32px
+    position: relative
+    span
+        overflow: hidden
+    &:link, &:hover, &:visited, &:active
+        color: #ffff
