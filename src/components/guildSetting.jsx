@@ -23,9 +23,10 @@ const Guild = () => {
                         />
                         <div></div>
                     </div>
+                    <LoginButton />
                 </div>
             </div>
-            <LoginButton />
+            
         </span>
     );
 };
