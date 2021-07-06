@@ -1,9 +1,9 @@
 #Dashboard-menu
     position: relative
-    height: 100%
+    height: calc( 100% - 40px )
     background-color: #2F3136
     transition: width .3s
-
+    padding: 20px 0
     #Menu
         padding: 0
         margin: 0
@@ -11,6 +11,7 @@
         width: 100%
         position: relative
         overflow: auto
+        overflow: hidden
 
         &::-webkit-scrollbar
             width: 6px
@@ -22,17 +23,17 @@
         .Classification
             width: 100%
             position: relative
-
+            
             .Drop-down
                 height: 40px
                 position: relative
                 color: #ffff
                 font-family: 'Mone'
-
+                transition: .3s
                 span
                     font-size: 14px
                     display: inline-block
-                    margin-left: 36px
+                    margin-left: 30px
                     margin-top: 10px
                     white-space: nowrap
                 svg
@@ -59,6 +60,28 @@
                 height: 0
                 width: 100%
                 overflow: hidden
+        
+        #title
+            position: relative
+            width: 100%
+            height: 50px
+
+            a
+                font-size: 35px
+                text-decoration: none
+                width: 100%
+                height: 100%
+                position: absolute
+                &:link, &:hover, &:visited, &:active
+                    color: #ffff
+                div
+                    position: absolute
+                    left: 25px
+                span
+                    position: absolute
+                    left: 80px
+                    overflow: hidden
+                    font-weight: bold
 
 
 .Option
