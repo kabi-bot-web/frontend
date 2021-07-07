@@ -60,10 +60,11 @@
 
     @media screen and ( max-width: 414px )
         opacity: 1
-        width: 20px
-        height: 20px
+        width: 25px
+        height: 25px
         margin-left: 20px
-        padding-top: 30px
+        padding-top: 27px
+
         div
             &::after, &::before, &
                 content: ''
@@ -75,17 +76,17 @@
                 transition: .5s
 
             &::before
-                top: 7px
+                top: 10px
             &::after
-                top: -7px
+                top: -10px
         input
             opacity: 1
             z-index: 3
             position: absolute
             margin: 0
             padding: 0
-            width: 20px
-            height: 20px
+            width: 25px
+            height: 25px
             opacity: 0
             &:checked + div
                 transform: rotate(135deg)
@@ -101,8 +102,6 @@
             &:checked + #navbar-list
                 opacity: 1
                 left: 20px
-                
-            
 
 #Title
     display: inline-block
@@ -127,6 +126,7 @@
     right: 20px
     top: 20px
     -webkit-user-select: none
+
     a, button
         color: #ffff
         &:link, &:hover, &:visited, &:active

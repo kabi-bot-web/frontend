@@ -14,19 +14,20 @@ const Guild = () => {
             <div id="Setting" className={menu ? 'Setting-open' : 'Setting-close'}>
                 <div id="Navbar">
                     <div id="Menu-button">
-                        <input 
-                            type="checkbox" 
+                        <input
+                            type="checkbox"
                             onClick={() => {
                                 setMenu(!menu);
                             }}
                             checked={menu ? 'checked' : ''}
+                            readOnly={true}
                         />
                         <div></div>
                     </div>
                     <LoginButton />
                 </div>
             </div>
-            
+
         </span>
     );
 };

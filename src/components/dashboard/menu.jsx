@@ -7,12 +7,12 @@ import kabiImg from '../imgs/kabi.png';
 import './sass/menu.sass'
 
 const Menu = ({ menu }) => {
-    //要翻譯
+    //要翻譯name
     const options = [
         {
             name: 'Server Management', options: [
-                { name: '??', url: '/??', icon: <AppsIcon /> },
-                { name: '???', url: '/???', icon: <SettingsIcon /> }
+                { name: '??', url: '/dashboard/439411756033638400', icon: <AppsIcon /> },
+                { name: '???', url: '/dashboard/439411756033638400', icon: <SettingsIcon /> }
             ]
         }
     ];
@@ -37,7 +37,7 @@ const Menu = ({ menu }) => {
 
                 {options.map((value) => {
                     return (
-                        <li className="Classification">
+                        <li className="Classification" key={value.name}>
                             <input type="checkbox" />
                             <div className="Drop-down" style={{ opacity: menu ? 1 : 0 }}>
                                 <span>{value.name}</span>
@@ -46,7 +46,7 @@ const Menu = ({ menu }) => {
                             <div className="Options" style={{ height: menu ? '' : '100%' }}>
                                 {value.options.map((value2) => {
                                     return (
-                                        <Link className="Option" to={value2.url}>
+                                        <Link className="Option" to={value2.url} key={value2.name}>
                                             {value2.icon}
                                             <span
                                                 style={{

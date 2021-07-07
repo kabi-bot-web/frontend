@@ -4,6 +4,9 @@
     background-color: #2F3136
     transition: width .3s
     padding: 20px 0
+    box-shadow: 0 1px 0 1px #313442
+    z-index: 2
+
     #Menu
         padding: 0
         margin: 0
@@ -23,7 +26,7 @@
         .Classification
             width: 100%
             position: relative
-            
+
             .Drop-down
                 height: 40px
                 position: relative
@@ -55,12 +58,12 @@
 
                 &:checked ~ .Options
                     height: 100%
-                
+
             .Options
                 height: 0
                 width: 100%
                 overflow: hidden
-        
+
         #title
             position: relative
             width: 100%
@@ -83,16 +86,21 @@
                     overflow: hidden
                     font-weight: bold
 
-
 .Option
-    width: 100%
+    width: 210px
     height: 40px
     display: block
     text-decoration: none
-    // text-align: center
-    left: 32px
+    left: 20px
     position: relative
+    padding: 
+        left: 12px
+        top: 12px
+    border-radius: 5px
     span
         overflow: hidden
     &:link, &:hover, &:visited, &:active
         color: #ffff
+
+    &:focus
+        background-color: #3a3b429d

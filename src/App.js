@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { UserData, Login, Lan } from './components/js/Context';
 import { useState, useEffect } from 'react';
 import GuildSetting from './components/guildSetting';
