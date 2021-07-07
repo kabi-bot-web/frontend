@@ -59,12 +59,28 @@
                         
     .Setting-open
         width: calc( 100% - 260px )
+        @media screen and ( max-width: 414px )
+            width: 100%
+            #Navbar #Menu-button
+                position: fixed
+                right: 20px
+                z-index: 2
+                transition: .3s
+
+
 
     .Setting-close
         width: calc( 100% - 87px )
+        @media screen and ( max-width: 414px )
+            width: 100%
 
     .Menu-open
         width: 260px
+        @media screen and ( max-width: 414px )
+            width: 100%
+            z-index: 1
     
     .Menu-close
         width: 87px
+        @media screen and ( max-width: 414px )
+            width: 0
