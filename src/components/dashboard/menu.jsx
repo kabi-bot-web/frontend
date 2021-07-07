@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
 import AppsIcon from '@material-ui/icons/Apps';
 import SettingsIcon from '@material-ui/icons/Settings';
@@ -16,6 +17,7 @@ const Menu = ({ menu }) => {
             ]
         }
     ];
+    const [focus, setFocus] = useState([0, 0]);
 
     return (
         <div id="Dashboard-menu" className={menu ? 'Menu-open' : 'Menu-close'}>
@@ -35,7 +37,7 @@ const Menu = ({ menu }) => {
                     </Link>
                 </li>
 
-                {options.map((value) => {
+                {options.map((value, index) => {
                     return (
                         <li className="Classification" key={value.name}>
                             <input type="checkbox" />
@@ -44,9 +46,21 @@ const Menu = ({ menu }) => {
                                 <ArrowLeftIcon />
                             </div>
                             <div className="Options" style={{ height: menu ? '' : '100%' }}>
-                                {value.options.map((value2) => {
+                                {value.options.map((value2, index2) => {
                                     return (
-                                        <Link className="Option" to={value2.url} key={value2.name}>
+                                        <Link
+                                            className={
+                                                (focus[0] === index && focus[1] === index2) ?
+                                                    (menu ?
+                                                        'Option Option-focus-open' : 'Option Option-focus-close'
+                                                    ) : 'Option'
+                                            }
+                                            to={value2.url}
+                                            key={value2.name}
+                                            onClick={() => {
+                                                setFocus([index, index2]);
+                                            }}
+                                        >
                                             {value2.icon}
                                             <span
                                                 style={{
