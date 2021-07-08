@@ -10,7 +10,7 @@ const Guild = () => {
 
     return (
         <span id="Guild-dashboard">
-            <Menu menu={menu} />
+            <Menu menu={menu} id={id}/>
             <div id="Setting" className={menu ? 'Setting-open' : 'Setting-close'}>
                 <div id="Navbar">
                     <div id="Menu-button">
