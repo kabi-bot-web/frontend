@@ -56,11 +56,6 @@ const Menu = ({ menu, id }) => {
                     <Select
                         id="select"
                         disableUnderline
-                        MenuProps={{
-                            classes: {
-                                paper: ''
-                            }
-                        }}
                         value={useId}
                         onChange={(event) => {
                             setUseId(event.target.value);
@@ -86,9 +81,11 @@ const Menu = ({ menu, id }) => {
                                         {value.name}
                                     </Avatar>
                                     <span
-                                        style={{marginLeft: '10px'}}
+                                        style={{
+                                            marginLeft: '10px'
+                                        }}
                                     >
-                                        {value.name}
+                                        {menu ? value.name : ''}
                                     </span>
                                 </MenuItem>
                             );
