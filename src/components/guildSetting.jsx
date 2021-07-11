@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Switch } from 'react-router-dom';
 import { useState } from 'react';
 import Menu from './dashboard/menu';
 import LoginButton from './loginButton';
@@ -25,6 +25,10 @@ const Guild = () => {
                         <div></div>
                     </div>
                     <LoginButton />
+                </div>
+                <div id="Content">
+                    <Switch>
+                    </Switch>
                 </div>
             </div>
 

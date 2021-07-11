@@ -1,0 +1,26 @@
+#Setting
+    position: absolute
+    right: 0
+    top: 0
+    height: 100%
+    transition: .3s
+
+    @import "./navbar"
+    #Content
+        width: 100%
+        height: calc( 100% - 80px )
+
+.Setting-open
+    width: calc( 100% - 260px )
+    @media screen and ( max-width: 600px )
+        width: 100%
+        #Navbar #Menu-button
+            position: fixed
+            right: 20px
+            z-index: 2
+            transition: .3s
+
+.Setting-close
+    width: calc( 100% - 87px )
+    @media screen and ( max-width: 600px )
+        width: 100%
