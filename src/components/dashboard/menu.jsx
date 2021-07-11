@@ -1,8 +1,6 @@
 import { Link, useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
-import AppsIcon from '@material-ui/icons/Apps';
-import SettingsIcon from '@material-ui/icons/Settings';
 import Avatar from '@material-ui/core/Avatar';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -10,16 +8,7 @@ import kabiImg from '../imgs/kabi.png';
 import { userAPI } from '../js/api';
 import './sass/menu.sass'
 
-const Menu = ({ menu, id }) => {
-    //要翻譯name
-    const options = [
-        {
-            name: 'Server Management', options: [
-                { name: '??', url: '/dashboard/439411756033638400', icon: <AppsIcon /> },
-                { name: '???', url: '/dashboard/439411756033638400', icon: <SettingsIcon /> }
-            ]
-        }
-    ];
+const Menu = ({ menu, id, options }) => {
     const [focus, setFocus] = useState([0, 0]);
     const [guilds, setGuilds] = useState([]);
     const [useId, setUseId] = useState(id);
@@ -125,7 +114,7 @@ const Menu = ({ menu, id }) => {
                                                         'Option Option-focus-open' : 'Option Option-focus-close'
                                                     ) : 'Option'
                                             }
-                                            to={value2.url}
+                                            to={`/dashboard/${useId}/${value2.url}`}
                                             key={value2.name}
                                             onClick={() => {
                                                 setFocus([index, index2]);

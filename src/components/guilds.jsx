@@ -1,4 +1,3 @@
-import { Lan } from "./js/Context";
 import { Link, useRouteMatch } from 'react-router-dom';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Button from '@material-ui/core/Button';
