@@ -42,7 +42,7 @@ const Guild = () => {
                 <div id="Content">
                     <Switch>
                         <Route exact path={match.path}>
-                            <Main options={options} />
+                            <Main options={options} menu={menu} />
                         </Route>
                     </Switch>
                 </div>
