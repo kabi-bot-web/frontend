@@ -1,5 +1,5 @@
 import './sass/main.sass';
-
+import { IOSSwitch } from './switch/IOSSwitch';
 const Main = ({ options, menu }) => {
     return (
         <div id="Dashboard-main">
@@ -13,6 +13,7 @@ const Main = ({ options, menu }) => {
                                 return (
                                     <div className="Switch" key={switchOption.name}>
                                         <span>{switchOption.name}</span>
+                                        <IOSSwitch />
                                     </div>
                                 );
                             })}
