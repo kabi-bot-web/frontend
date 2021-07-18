@@ -1,0 +1,28 @@
+.Option
+    width: 210px
+    height: 40px
+    display: block
+    text-decoration: none
+    left: 20px
+    position: relative
+    padding:
+        left: 12px
+        top: 12px
+    border-radius: 5px
+    @media screen and ( max-width: 600px )
+        width: 80%
+    span
+        overflow: hidden
+    &:link, &:hover, &:visited, &:active
+        color: #ffff
+
+.Option-focus-open
+    background-color: #44474e8c
+    &:link, &:hover, &:visited, &:active
+        color: rgb(46, 182, 222)
+    span
+        color: #ffff
+
+.Option-focus-close
+    &:link, &:hover, &:visited, &:active
+        color: rgb(46, 182, 222)

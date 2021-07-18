@@ -6,7 +6,7 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import kabiImg from '../imgs/kabi.png';
 import { userAPI } from '../js/api';
-import './sass/menu.sass'
+import './sass/dashboardMenu.sass'
 
 const Menu = ({ menu, id, options }) => {
     const [focus, setFocus] = useState([0, 0]);
@@ -61,6 +61,7 @@ const Menu = ({ menu, id, options }) => {
                         onChange={(event) => {
                             setUseId(event.target.value);
                             history.push(`/dashboard/${event.target.value}`);
+                            setFocus([0, 0]);
                         }}
                     >
                         {guilds.map((value) => {

@@ -12,8 +12,12 @@ const Main = ({ options, menu }) => {
                             {option.options.map((switchOption) => {
                                 return (
                                     <div className="Switch" key={switchOption.name}>
-                                        <span>{switchOption.name}</span>
+                                        {switchOption.icon}
                                         <IOSSwitch />
+                                        <p>{switchOption.name}</p>
+                                        <p id="Description">
+                                            {switchOption.description}
+                                        </p>
                                     </div>
                                 );
                             })}
