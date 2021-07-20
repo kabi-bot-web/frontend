@@ -1,6 +1,7 @@
 import './sass/main.sass';
 import { IOSSwitch } from './switch/IOSSwitch';
-const Main = ({ options, menu }) => {
+
+const Main = ({ options }) => {
     return (
         <div id="Dashboard-main">
             {options.map((option) => {

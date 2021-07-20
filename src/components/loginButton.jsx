@@ -8,6 +8,10 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import { useContext, useState } from 'react';
 import { UserData, Login } from './js/Context';
 import { userAPI } from './js/api';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import './sass/language.sass';
 
 const LoginButton = () => {
     const [menuSwith, setMenuSwith] = useState(false);
@@ -16,7 +20,8 @@ const LoginButton = () => {
 
     const StyleMenu = withStyles({
         paper: {
-            backgroundColor: '#424242'
+            backgroundColor: '#424242',
+            display: 'table'
         }
 
     })(Menu);
@@ -68,6 +73,25 @@ const LoginButton = () => {
                     horizontal: 'center',
                 }}
             >
+
+                <MenuItem id="Language">
+                    Servers
+                </MenuItem>
+                <MenuItem id="Language">
+                    Language
+                </MenuItem>
+                <List id="menu" component="nav" aria-label="main mailbox folders">
+                    <ListItem button>
+                        <ListItemText>
+                            中文
+                        </ListItemText>
+                    </ListItem>
+                    <ListItem button>
+                        <ListItemText>
+                            English
+                        </ListItemText>
+                    </ListItem>
+                </List>
                 <MenuItem
                     style={{ color: '#A72A39' }}
                     onClick={() => {

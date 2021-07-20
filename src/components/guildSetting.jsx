@@ -11,7 +11,7 @@ const Guild = () => {
     const { id } = useParams();
     const [menu, setMenu] = useState(false);
     const match = useRouteMatch();
-    //要翻譯name
+    //要翻譯name description
     const options = [
         {
             options: [
@@ -74,7 +74,7 @@ const Guild = () => {
                 <div id="Content">
                     <Switch>
                         <Route exact path={match.path}>
-                            <Main options={options} menu={menu} />
+                            <Main options={options} />
                         </Route>
                     </Switch>
                 </div>

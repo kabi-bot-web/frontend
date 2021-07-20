@@ -1,0 +1,15 @@
+#Language
+    color: #ffff
+    & + #menu
+        position: absolute
+        left: -100px
+        background-color: #424242
+        border-radius: 5px
+        opacity: 0
+        pointer-events: none
+        color: #ffff
+        box-shadow: 0px 5px 5px -3px rgb(0 0 0 / 20%), 0px 8px 10px 1px rgb(0 0 0 / 14%), 0px 3px 14px 2px rgb(0 0 0 / 12%)
+    &:focus + #menu, & + #menu:hover
+        pointer-events: all
+        opacity: 1
+

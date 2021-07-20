@@ -35,6 +35,7 @@ const Menu = ({ menu, id, options }) => {
                 }
             });
     }, []);
+    
     return (
         <div id="Dashboard-menu" className={menu ? 'Menu-open' : 'Menu-close'}>
             <ul id="Menu">
