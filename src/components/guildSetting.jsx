@@ -14,22 +14,42 @@ const Guild = () => {
     //要翻譯name
     const options = [
         {
-            name: 'Server Management',
             options: [
                 {
                     name: 'Dashboard',
                     url: '',
                     icon: <AppsIcon />,
-                    description: 'wtf is this'
+                    description: 'wtf is this',
+                    switch: true
                 },
                 {
                     name: '???',
                     url: 'a',
                     icon: <SettingsIcon />,
-                    description: 'wtf is this'
+                    description: 'wtf is this',
+                    switch: true
                 }
             ]
 
+        },
+        {
+            name: 'sadsada',
+            options: [
+                {
+                    name: 'Dashboard',
+                    url: '',
+                    icon: <AppsIcon />,
+                    description: 'wtf is this',
+                    switch: true
+                },
+                {
+                    name: '???',
+                    url: 'a',
+                    icon: <SettingsIcon />,
+                    description: 'wtf is this',
+                    switch: true
+                }
+            ]
         }
     ];
 

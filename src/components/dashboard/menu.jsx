@@ -66,7 +66,7 @@ const Menu = ({ menu, id, options }) => {
                     >
                         {guilds.map((value) => {
                             return (
-                                <MenuItem value={value.id}>
+                                <MenuItem value={value.id} key={value.id} >
                                     <Avatar
                                         alt={value.name}
                                         src={
@@ -99,13 +99,16 @@ const Menu = ({ menu, id, options }) => {
 
                 {options.map((value, index) => {
                     return (
-                        <li className="Classification" key={value.name}>
+                        <li className="Classification" key={value.name || ''}>
                             <input type="checkbox" />
-                            <div className="Drop-down" style={{ opacity: menu ? 1 : 0 }}>
+                            <div 
+                                className="Drop-down" 
+                                style={{ opacity: (menu && value.name !== undefined) ? 1 : 0 }}
+                            >
                                 <span>{value.name}</span>
                                 <ArrowLeftIcon />
                             </div>
-                            <div className="Options" style={{ height: menu ? '' : '100%' }}>
+                            <div className="Options" style={{ height: (menu && value.name !== undefined) ? '' : '100%' }}>
                                 {value.options.map((value2, index2) => {
                                     return (
                                         <Link

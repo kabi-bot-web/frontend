@@ -4,7 +4,7 @@ const Main = ({ options, menu }) => {
     return (
         <div id="Dashboard-main">
             {options.map((option) => {
-                return (
+                return (option.name !== undefined) ? (
                     <div className="Option" key={option.name}>
                         <span>{option.name}</span>
                         <hr />
@@ -23,7 +23,7 @@ const Main = ({ options, menu }) => {
                             })}
                         </div>
                     </div>
-                );
+                ) : (null);
             })}
         </div>
     );
