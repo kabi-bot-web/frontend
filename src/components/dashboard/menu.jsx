@@ -143,7 +143,7 @@ const Menu = ({ menu, id, options }) => {
                     );
                 })}
             </ul>
-        </div >
+        </div>
     );
 };
 

@@ -11,6 +11,7 @@ import { userAPI } from './js/api';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import { Link } from 'react-router-dom';
 import './sass/language.sass';
 
 const LoginButton = () => {
@@ -74,8 +75,8 @@ const LoginButton = () => {
                 }}
             >
 
-                <MenuItem id="Language">
-                    Servers
+                <MenuItem id="Server-link">
+                    <Link to="/dashboard">My Servers</Link>
                 </MenuItem>
                 <MenuItem id="Language">
                     Language
