@@ -11,7 +11,8 @@ function App() {
     const [userData, setUserData] = useState(
         { "id": "458988300418416640", "username": "xiao xigua", "avatar": "31d2892e691d2c983dc6851d8a94472d", "discriminator": "8787", "public_flags": 64, "flags": 64, "locale": "zh-TW", "mfa_enabled": true, "premium_type": 2 }
     );
-    const [lan, setLan] = useState('ch');
+    const [lan, setLan] = useState('en');
+
     useEffect(() => {
         window.onscroll = () => {
             const top = document.documentElement.scrollTop || document.body.scrollTop;

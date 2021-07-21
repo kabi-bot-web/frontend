@@ -18,7 +18,7 @@ const LoginButton = () => {
     const [menuSwith, setMenuSwith] = useState(false);
     const { login, setLogin } = useContext(Login);
     const { userData, setUserData } = useContext(UserData);
-    const { lan, setLan } = useContext(Lan);
+    const { setLan } = useContext(Lan);
     const lanData = {
         "中文": "ch",
         "English": "en"
@@ -26,6 +26,7 @@ const LoginButton = () => {
     const setLanFun = (lanName) => {
         return () => {
             setLan(lanName);
+            setMenuSwith(false);
         }
     };
     const StyleMenu = withStyles({
