@@ -9,29 +9,29 @@ import './sass/main.sass';
 
 const Main = () => {
     // test data
-    const { setLogin } = useContext(Login);
-    const { setUserData } = useContext(UserData);
+    // const { setLogin } = useContext(Login);
+    // const { setUserData } = useContext(UserData);
     const [navbar, setNavbar] = useState(false);
-    useEffect(() => {
-        window.onscroll = () => {
-            const top = document.documentElement.scrollTop || document.body.scrollTop;
-            console.log(top);
-            for (let i of document.getElementsByClassName("Description")) {
-                if (i.offsetTop - window.innerHeight >= top) {
-                    i.style = "margin: 40vh 0;"
-                } else {
-                    i.style = "margin: 30vh 0;"
-                }
-            }
-        }
-        userAPI.get('').then(req => {
-            if (!req.data.error) {
-                setUserData(req.data.data);
-                setLogin(true);
-            }
-        });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    // useEffect(() => {
+    //     window.onscroll = () => {
+    //         const top = document.documentElement.scrollTop || document.body.scrollTop;
+    //         console.log(top);
+    //         for (let i of document.getElementsByClassName("Description")) {
+    //             if (i.offsetTop - window.innerHeight >= top) {
+    //                 i.style = "margin: 40vh 0;"
+    //             } else {
+    //                 i.style = "margin: 30vh 0;"
+    //             }
+    //         }
+    //     }
+    //     userAPI.get('').then(req => {
+    //         if (!req.data.error) {
+    //             setUserData(req.data.data);
+    //             setLogin(true);
+    //         }
+    //     });
+    // // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, []);
 
     const navbarClose = () => {
         setNavbar(false)

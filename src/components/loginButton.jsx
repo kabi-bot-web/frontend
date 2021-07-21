@@ -6,7 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import { useContext, useState } from 'react';
-import { UserData, Login } from './js/Context';
+import { UserData, Login, Lan } from './js/Context';
 import { userAPI } from './js/api';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -18,7 +18,16 @@ const LoginButton = () => {
     const [menuSwith, setMenuSwith] = useState(false);
     const { login, setLogin } = useContext(Login);
     const { userData, setUserData } = useContext(UserData);
-
+    const { lan, setLan } = useContext(Lan);
+    const lanData = {
+        "中文": "ch",
+        "English": "en"
+    };
+    const setLanFun = (lanName) => {
+        return () => {
+            setLan(lanName);
+        }
+    };
     const StyleMenu = withStyles({
         paper: {
             backgroundColor: '#424242',
@@ -82,16 +91,20 @@ const LoginButton = () => {
                     Language
                 </MenuItem>
                 <List id="menu" component="nav" aria-label="main mailbox folders">
-                    <ListItem button>
-                        <ListItemText>
-                            中文
-                        </ListItemText>
-                    </ListItem>
-                    <ListItem button>
-                        <ListItemText>
-                            English
-                        </ListItemText>
-                    </ListItem>
+                    {Object.keys(lanData).map(lanName => {
+                        return (
+                            <ListItem 
+                                button 
+                                onClick={setLanFun(lanData[lanName])} 
+                                key={lanName}
+                            >
+                                <ListItemText>
+                                    {lanName}
+                                </ListItemText>
+                            </ListItem>
+                        )
+                    })}
+
                 </List>
                 <MenuItem
                     style={{ color: '#A72A39' }}
