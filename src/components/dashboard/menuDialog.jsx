@@ -4,8 +4,8 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogActions from '@material-ui/core/DialogActions';
 import Button from '@material-ui/core/Button';
-
-const MenuDialog = ({ dialog, setDialog, options, setOptions, id }) => {
+// 功能開啟彈跳視窗
+const MenuDialog = ({ dialog, setDialog, options, setOptions, id, setFocus }) => {
     const history = useHistory();
     const StyleDialog = withStyles({
         paper: {
@@ -14,6 +14,7 @@ const MenuDialog = ({ dialog, setDialog, options, setOptions, id }) => {
         }
 
     })(Dialog);
+    // 文字記得翻譯
     return (
         <StyleDialog
             open={Boolean(dialog)}
@@ -39,8 +40,9 @@ const MenuDialog = ({ dialog, setDialog, options, setOptions, id }) => {
                         let data = Object.assign([], options);
                         data[dialog[0]].options[dialog[1]].switch = true;
                         setOptions(data);
-                        setDialog(false);
                         history.push(`/dashboard/${id}/${data[dialog[0]].options[dialog[1]].url}`);
+                        setFocus(dialog);
+                        setDialog(false);
                     }}
                     color="primary"
                     autoFocus
