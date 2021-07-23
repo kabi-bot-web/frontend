@@ -7,7 +7,7 @@ import './sass/home.sass';
 
 const Home = () => {
     const { lan } = useContext(Lan);
-
+    // 這裡記得翻譯
     return (
         <div id="Home">
             <div id="text">

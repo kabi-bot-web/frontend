@@ -1,8 +1,6 @@
 body, html, #root {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding: 0;
@@ -11,4 +9,15 @@ body, html, #root {
   min-width: 100%;
   min-height: 100%;
   height: 100%;
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 20px;
+  background-color: #2E3338;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #202225;
+  border-radius: 20px;
 }
