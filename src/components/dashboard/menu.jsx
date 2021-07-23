@@ -1,10 +1,6 @@
 import { Link, useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import Dialog from '@material-ui/core/Dialog';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import DialogActions from '@material-ui/core/DialogActions';
-import Button from '@material-ui/core/Button';
+import MenuDialog from './menuDialog';
 import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
 import Avatar from '@material-ui/core/Avatar';
 import Select from '@material-ui/core/Select';
@@ -19,13 +15,7 @@ const Menu = ({ menu, id, options, setOptions }) => {
     const [useId, setUseId] = useState(id);
     const [dialog, setDialog] = useState(false);
     const history = useHistory();
-    const StyleDialog = withStyles({
-        paper: {
-            backgroundColor: '#272934',
-            color: '#ffff'
-        }
 
-    })(Dialog);
     useEffect(() => {
         // test
         setGuilds([
@@ -121,7 +111,10 @@ const Menu = ({ menu, id, options, setOptions }) => {
                                 <span>{value.name}</span>
                                 <ArrowLeftIcon />
                             </div>
-                            <div className="Options" style={{ height: (menu && value.name !== undefined) ? '' : '100%' }}>
+                            <div 
+                                className="Options" 
+                                style={{ height: (menu && value.name !== undefined) ? '' : '100%' }}
+                            >
                                 {value.options.map((value2, index2) => {
                                     return (
                                         <div
@@ -129,7 +122,7 @@ const Menu = ({ menu, id, options, setOptions }) => {
                                                 (focus[0] === index && focus[1] === index2) ?
                                                     (menu ?
                                                         'Option Option-focus-open' : 'Option Option-focus-close'
-                                                    ) : 'Option'
+                                                    ) : (menu ? 'Option' : 'Option Option-close') 
                                             }
                                             key={value2.name}
                                             onClick={() => {
@@ -158,40 +151,13 @@ const Menu = ({ menu, id, options, setOptions }) => {
                 })}
             </ul>
 
-            <StyleDialog
-                open={Boolean(dialog)}
-                onClose={() => {
-                    setDialog(false);
-                }}
-                aria-labelledby="alert-dialog-title"
-                aria-describedby="alert-dialog-description"
-            >
-                <DialogTitle id="alert-dialog-title">Do you want to enable this plugin?</DialogTitle>
-                <DialogActions>
-                    <Button
-                        onClick={() => {
-                            setDialog(false);
-                        }}
-                        variant="outlined"
-                        style={{color: '#ffff'}}
-                    >
-                        Nope
-                    </Button>
-                    <Button
-                        onClick={() => {
-                            let data = Object.assign([], options);
-                            data[dialog[0]].options[dialog[1]]['switch'] = !data[dialog[0]].options[dialog[1]]['switch'];
-                            setOptions(data);
-                            setDialog(false);
-                        }}
-                        color="primary"
-                        autoFocus
-                        variant="contained"
-                    >
-                        Yes
-                    </Button>
-                </DialogActions>
-            </StyleDialog>
+            <MenuDialog
+                options={options}
+                setOptions={setOptions}
+                dialog={dialog}
+                setDialog={setDialog}
+                id={id}
+            />
         </div>
     );
 };
