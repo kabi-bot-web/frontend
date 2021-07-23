@@ -1,5 +1,10 @@
 import { Link, useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { withStyles } from '@material-ui/core/styles';
+import Dialog from '@material-ui/core/Dialog';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import DialogActions from '@material-ui/core/DialogActions';
+import Button from '@material-ui/core/Button';
 import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
 import Avatar from '@material-ui/core/Avatar';
 import Select from '@material-ui/core/Select';
@@ -8,12 +13,19 @@ import kabiImg from '../imgs/kabi.png';
 import { userAPI } from '../js/api';
 import './sass/dashboardMenu.sass'
 
-const Menu = ({ menu, id, options }) => {
+const Menu = ({ menu, id, options, setOptions }) => {
     const [focus, setFocus] = useState([0, 0]);
     const [guilds, setGuilds] = useState([]);
     const [useId, setUseId] = useState(id);
+    const [dialog, setDialog] = useState(false);
     const history = useHistory();
+    const StyleDialog = withStyles({
+        paper: {
+            backgroundColor: '#272934',
+            color: '#ffff'
+        }
 
+    })(Dialog);
     useEffect(() => {
         // test
         setGuilds([
@@ -35,7 +47,7 @@ const Menu = ({ menu, id, options }) => {
                 }
             });
     }, []);
-    
+
     return (
         <div id="Dashboard-menu" className={menu ? 'Menu-open' : 'Menu-close'}>
             <ul id="Menu">
@@ -102,8 +114,8 @@ const Menu = ({ menu, id, options }) => {
                     return (
                         <li className="Classification" key={value.name || ''}>
                             <input type="checkbox" />
-                            <div 
-                                className="Drop-down" 
+                            <div
+                                className="Drop-down"
                                 style={{ opacity: (menu && value.name !== undefined) ? 1 : 0 }}
                             >
                                 <span>{value.name}</span>
@@ -112,17 +124,19 @@ const Menu = ({ menu, id, options }) => {
                             <div className="Options" style={{ height: (menu && value.name !== undefined) ? '' : '100%' }}>
                                 {value.options.map((value2, index2) => {
                                     return (
-                                        <Link
+                                        <div
                                             className={
                                                 (focus[0] === index && focus[1] === index2) ?
                                                     (menu ?
                                                         'Option Option-focus-open' : 'Option Option-focus-close'
                                                     ) : 'Option'
                                             }
-                                            to={`/dashboard/${useId}/${value2.url}`}
                                             key={value2.name}
                                             onClick={() => {
-                                                setFocus([index, index2]);
+                                                if (value2.switch || value2.switch === undefined) {
+                                                    setFocus([index, index2]);
+                                                    history.push(`/dashboard/${useId}/${value2.url}`);
+                                                } else setDialog([index, index2]);
                                             }}
                                         >
                                             {value2.icon}
@@ -135,7 +149,7 @@ const Menu = ({ menu, id, options }) => {
                                             >
                                                 {value2.name}
                                             </span>
-                                        </Link>
+                                        </div>
                                     );
                                 })}
                             </div>
@@ -143,6 +157,41 @@ const Menu = ({ menu, id, options }) => {
                     );
                 })}
             </ul>
+
+            <StyleDialog
+                open={Boolean(dialog)}
+                onClose={() => {
+                    setDialog(false);
+                }}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+            >
+                <DialogTitle id="alert-dialog-title">Do you want to enable this plugin?</DialogTitle>
+                <DialogActions>
+                    <Button
+                        onClick={() => {
+                            setDialog(false);
+                        }}
+                        variant="outlined"
+                        style={{color: '#ffff'}}
+                    >
+                        Nope
+                    </Button>
+                    <Button
+                        onClick={() => {
+                            let data = Object.assign([], options);
+                            data[dialog[0]].options[dialog[1]]['switch'] = !data[dialog[0]].options[dialog[1]]['switch'];
+                            setOptions(data);
+                            setDialog(false);
+                        }}
+                        color="primary"
+                        autoFocus
+                        variant="contained"
+                    >
+                        Yes
+                    </Button>
+                </DialogActions>
+            </StyleDialog>
         </div>
     );
 };

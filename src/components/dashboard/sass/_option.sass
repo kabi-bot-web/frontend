@@ -9,23 +9,27 @@
         left: 12px
         top: 12px
     border-radius: 5px
+    color: #797979
     transition: color .3s
     @media screen and ( max-width: 600px )
         width: 80%
     span
         overflow: hidden
-    &:link, &:hover, &:visited, &:active
-        color: #797979
+
+    
     &:hover
         color: #ffff
+    svg
+        height: 24px
+        width: 24px
 
 .Option-focus-open
     background-color: #44474e8c
-    &:link, &:hover, &:visited, &:active
+    &, &:hover
         color: rgb(46, 182, 222)
     span
         color: #ffff
 
 .Option-focus-close
-    &:link, &:hover, &:visited, &:active
+    &, &:hover
         color: rgb(46, 182, 222)

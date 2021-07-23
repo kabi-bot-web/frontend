@@ -23,12 +23,14 @@ const LoginButton = () => {
         "中文": "ch",
         "English": "en"
     };
+
     const setLanFun = (lanName) => {
         return () => {
             setLan(lanName);
             setMenuSwith(false);
         }
     };
+    
     const StyleMenu = withStyles({
         paper: {
             backgroundColor: '#424242',
@@ -94,9 +96,9 @@ const LoginButton = () => {
                 <List id="menu" component="nav" aria-label="main mailbox folders">
                     {Object.keys(lanData).map(lanName => {
                         return (
-                            <ListItem 
-                                button 
-                                onClick={setLanFun(lanData[lanName])} 
+                            <ListItem
+                                button
+                                onClick={setLanFun(lanData[lanName])}
                                 key={lanName}
                             >
                                 <ListItemText>
