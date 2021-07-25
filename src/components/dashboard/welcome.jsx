@@ -1,8 +1,14 @@
+import './sass/welcome.sass';
 
-const welcome = ({ id }) => {
+const Welcome = ({ id }) => {
     return (
         <div id="welcome">
+            <div id="join">
+            </div>
+            <div id="leave">
+            </div>
         </div>
     );
 };
-export default welcome;
+
+export default Welcome;
