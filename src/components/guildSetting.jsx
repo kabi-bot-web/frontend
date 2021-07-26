@@ -22,15 +22,8 @@ const Guild = () => {
                     url: '',
                     icon: <AppsIcon />,
                     description: 'wtf is this'
-                },
-                {
-                    name: '???',
-                    url: 'a',
-                    icon: <SettingsIcon />,
-                    description: 'wtf is this'
                 }
             ]
-
         },
         {
             name: 'Server Management',
