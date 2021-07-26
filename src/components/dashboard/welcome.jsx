@@ -1,13 +1,14 @@
+import Setting from './settingPage';
 import './sass/welcome.sass';
 
 const Welcome = ({ id }) => {
     return (
-        <div id="welcome">
+        <Setting id="welcome" title="welcome">
             <div id="join">
             </div>
             <div id="leave">
             </div>
-        </div>
+        </Setting>
     );
 };
 

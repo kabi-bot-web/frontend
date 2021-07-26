@@ -1,4 +1,4 @@
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import MenuDialog from './menuDialog';
 import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
@@ -10,11 +10,11 @@ import { userAPI } from '../js/api';
 import './sass/dashboardMenu.sass'
 
 const Menu = ({ menu, id, options, setOptions }) => {
-    const [focus, setFocus] = useState([0, 0]);
     const [guilds, setGuilds] = useState([]);
     const [useId, setUseId] = useState(id);
     const [dialog, setDialog] = useState(false);
     const history = useHistory();
+    const location = useLocation();
 
     useEffect(() => {
         // test
@@ -64,7 +64,6 @@ const Menu = ({ menu, id, options, setOptions }) => {
                         onChange={(event) => {
                             setUseId(event.target.value);
                             history.push(`/dashboard/${event.target.value}`);
-                            setFocus([0, 0]);
                         }}
                     >
                         {guilds.map((value) => {
@@ -119,7 +118,7 @@ const Menu = ({ menu, id, options, setOptions }) => {
                                     return (
                                         <div
                                             className={
-                                                (focus[0] === index && focus[1] === index2) ?
+                                                (location.pathname === `/dashboard/${useId}/${value2.url}`) ?
                                                     (menu ?
                                                         'Option Option-focus-open' : 'Option Option-focus-close'
                                                     ) : (menu ? 'Option' : 'Option Option-close') 
@@ -127,7 +126,6 @@ const Menu = ({ menu, id, options, setOptions }) => {
                                             key={value2.name}
                                             onClick={() => {
                                                 if (value2.switch || value2.switch === undefined) {
-                                                    setFocus([index, index2]);
                                                     history.push(`/dashboard/${useId}/${value2.url}`);
                                                 } else setDialog([index, index2]);
                                             }}
@@ -157,7 +155,6 @@ const Menu = ({ menu, id, options, setOptions }) => {
                 dialog={dialog}
                 setDialog={setDialog}
                 id={id}
-                setFocus={setFocus}
             />
         </div>
     );
