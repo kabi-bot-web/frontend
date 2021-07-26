@@ -1,5 +1,5 @@
 import { Link, useHistory, useLocation } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import MenuDialog from './menuDialog';
 import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
 import Avatar from '@material-ui/core/Avatar';
