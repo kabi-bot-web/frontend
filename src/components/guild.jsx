@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import Avatar from '@material-ui/core/Avatar';
+import KabiAvatar from './avatar';
 import { Link } from 'react-router-dom';
 
 const Guild = ({ value, match }) => {
@@ -9,22 +9,7 @@ const Guild = ({ value, match }) => {
             <Link to={`${match.path}/${value.id}`}>
                 <Button
                     startIcon={
-                        <Avatar
-                            alt={value.name}
-                            src={
-                                value.icon === undefined ? '' :
-                                    "https://cdn.discordapp.com/icons/" +
-                                    `${value.id}/${value.icon}` +
-                                    `.${value.icon.startsWith("a_") ? "gif" : "png"}`
-                            }
-                            style={{
-                                width: '40px',
-                                height: '40px',
-                                whiteSpace: 'nowrap'
-                            }}
-                        >
-                            {value.name}
-                        </Avatar>
+                        <KabiAvatar value={value} size={40} />
                     }
                     style={{
                         textTransform: 'none',
