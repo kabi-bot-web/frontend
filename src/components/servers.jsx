@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import './sass/dashboard.sass';
 import Guilds from './guilds';
 import { userAPI } from "./js/api";
