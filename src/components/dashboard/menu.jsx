@@ -9,13 +9,13 @@ import kabiImg from '../imgs/kabi.png';
 import { userAPI } from '../js/api';
 import './sass/dashboardMenu.sass'
 
-const Menu = ({ menu, id, options, setOptions }) => {
+const Menu = ({ menu, id, options, setOptions, setFocus }) => {
     const [guilds, setGuilds] = useState([]);
     const [useId, setUseId] = useState(id);
     const [dialog, setDialog] = useState(false);
     const history = useHistory();
     const location = useLocation();
-
+    
     useEffect(() => {
         // test
         setGuilds([
@@ -115,6 +115,9 @@ const Menu = ({ menu, id, options, setOptions }) => {
                                 style={{ height: (menu && value.name !== undefined) ? '' : '100%' }}
                             >
                                 {value.options.map((value2, index2) => {
+
+                                    if (location.pathname === `/dashboard/${useId}/${value.url}`)
+                                        setFocus([index, index2]);
                                     return (
                                         <div
                                             className={
@@ -127,6 +130,7 @@ const Menu = ({ menu, id, options, setOptions }) => {
                                             onClick={() => {
                                                 if (value2.switch || value2.switch === undefined) {
                                                     history.push(`/dashboard/${useId}/${value2.url}`);
+                                                    setFocus([index, index2]);
                                                 } else setDialog([index, index2]);
                                             }}
                                         >

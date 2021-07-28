@@ -13,6 +13,7 @@ const Guild = () => {
     const { id } = useParams();
     const [menu, setMenu] = useState(false);
     const match = useRouteMatch();
+    const [focus, setFocus] = useState([0, 0]);
     //要翻譯name description
     const [options, setOptions] = useState([
         {
@@ -48,7 +49,13 @@ const Guild = () => {
 
     return (
         <span id="Guild-dashboard">
-            <Menu menu={menu} id={id} options={options} setOptions={setOptions} />
+            <Menu 
+                menu={menu} 
+                id={id} 
+                options={options} 
+                setOptions={setOptions} 
+                setFocus={setFocus} 
+            />
             <div id="Setting" className={menu ? 'Setting-open' : 'Setting-close'}>
                 <div id="Navbar">
                     <div id="Menu-button">
@@ -65,6 +72,7 @@ const Guild = () => {
                     <LoginButton />
                 </div>
                 <div id="Content">
+                    <h2>{options[focus[0]].options[focus[1]].name}</h2>
                     <Switch>
                         <Route exact path={match.path}>
                             <Main options={options} setOptions={setOptions}/>

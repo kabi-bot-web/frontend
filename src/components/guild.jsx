@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Guild = ({ value, match }) => {
     return (
         <div className="guild" key={value.id}>
-            <Link to={`${match.path}/${value.id}`}>
+            <Link to={`${match.path}/${value.id}/`}>
                 <Button
                     startIcon={
                         <KabiAvatar value={value} size={40} />
