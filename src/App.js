@@ -14,17 +14,6 @@ function App() {
     const [lan, setLan] = useState('en');
 
     useEffect(() => {
-        window.onscroll = () => {
-            const top = document.documentElement.scrollTop || document.body.scrollTop;
-            console.log(top);
-            for (let i of document.getElementsByClassName("Description")) {
-                if (i.offsetTop - window.innerHeight >= top) {
-                    i.style = "margin: 40vh 0;"
-                } else {
-                    i.style = "margin: 30vh 0;"
-                }
-            }
-        }
         userAPI.get('').then(req => {
             if (!req.data.error) {
                 setUserData(req.data.data);

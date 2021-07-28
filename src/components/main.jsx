@@ -1,5 +1,5 @@
 import { Link, Route, Switch } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import LoginButton from './loginButton';
 import Home from './home';
 import Servers from './servers';
@@ -11,9 +11,22 @@ const Main = () => {
     const navbarClose = () => {
         setNavbar(false)
     }
+    useEffect(() => {
+        document.getElementsByClassName("Main")[0].onscroll = () => {
+            const top = document.getElementsByClassName("Main")[0].scrollTop;
+            console.log(top);
+            for (let i of document.getElementsByClassName("Description")) {
+                if (i.offsetTop - window.innerHeight >= top) {
+                    i.style = "margin: 40vh 0;"
+                } else {
+                    i.style = "margin: 30vh 0;"
+                }
+            }
+        }
+    }, []);
+
 
     return (
-
         <div className="Main">
             <div id="navbar">
                 <div id="Title" onClick={navbarClose}><Link to="/">KABI</Link></div>
