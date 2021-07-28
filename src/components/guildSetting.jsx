@@ -72,7 +72,7 @@ const Guild = () => {
                     <LoginButton />
                 </div>
                 <div id="Content">
-                    <h2>{options[focus[0]].options[focus[1]].name}</h2>
+                    <h2 id="title">{options[focus[0]].options[focus[1]].name}</h2>
                     <Switch>
                         <Route exact path={match.path}>
                             <Main options={options} setOptions={setOptions}/>
