@@ -159,6 +159,7 @@ const Menu = ({ menu, id, options, setOptions, setFocus }) => {
                 dialog={dialog}
                 setDialog={setDialog}
                 id={id}
+                setFocus={setFocus}
             />
         </div>
     );

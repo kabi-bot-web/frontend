@@ -9,17 +9,17 @@ const Main = () => {
     const [navbar, setNavbar] = useState(false);
 
     const navbarClose = () => {
-        setNavbar(false)
-    }
+        setNavbar(false);
+    };
+
     useEffect(() => {
         document.getElementsByClassName("Main")[0].onscroll = () => {
             const top = document.getElementsByClassName("Main")[0].scrollTop;
-            console.log(top);
             for (let i of document.getElementsByClassName("Description")) {
                 if (i.offsetTop - window.innerHeight >= top) {
-                    i.style = "margin: 40vh 0;"
+                    i.style = "margin: 40vh 0;";
                 } else {
-                    i.style = "margin: 30vh 0;"
+                    i.style = "margin: 30vh 0;";
                 }
             }
         }

@@ -5,7 +5,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogActions from '@material-ui/core/DialogActions';
 import Button from '@material-ui/core/Button';
 // 功能開啟彈跳視窗
-const MenuDialog = ({ dialog, setDialog, options, setOptions, id }) => {
+const MenuDialog = ({ dialog, setDialog, options, setOptions, id, setFocus }) => {
     const history = useHistory();
     const StyleDialog = withStyles({
         paper: {
@@ -39,6 +39,7 @@ const MenuDialog = ({ dialog, setDialog, options, setOptions, id }) => {
                     onClick={() => {
                         let data = Object.assign([], options);
                         data[dialog[0]].options[dialog[1]].switch = true;
+                        setFocus(dialog);
                         setOptions(data);
                         history.push(`/dashboard/${id}/${data[dialog[0]].options[dialog[1]].url}`);
                         setDialog(false);
