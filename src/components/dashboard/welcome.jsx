@@ -7,13 +7,14 @@ const Welcome = ({ id }) => {
 
     return (
         <SettingPage id="welcome">
-            <SettingOption id="join" title="join">
+            <SettingOption id="join" title="join" open={false}>
+                asdas
             </SettingOption>
-            <SettingOption id="private-message" title="private-message">
+            <SettingOption id="private-message" title="private-message" open={true}>
             </SettingOption>
-            <SettingOption id="give-role" title="give role">
+            <SettingOption id="give-role" title="give role" open={true}>
             </SettingOption>
-            <SettingOption id="leave" title="leave">
+            <SettingOption id="leave" title="leave" open={true}>
             </SettingOption>
         </SettingPage>
     );
