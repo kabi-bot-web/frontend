@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { IOSSwitch } from './switch/IOSSwitch';
-import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import './sass/settingOption.sass';
 
 const SettingOption = ({ children, title, open, onSet, ...props }) => {
@@ -18,7 +18,7 @@ const SettingOption = ({ children, title, open, onSet, ...props }) => {
                         setDrop(false);
                 }}
             />
-            <ArrowLeftIcon
+            <ChevronLeftIcon
                 className={drop ? 'open' : 'close'}
                 style={{
                     opacity: open ? '1' : '0'

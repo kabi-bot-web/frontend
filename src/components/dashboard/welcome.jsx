@@ -47,33 +47,33 @@ const Welcome = ({ id }) => {
 
     return (
         <SettingPage id="welcome" fun={init}>
-            <SettingOption 
-                id="join" 
-                title="join" 
-                open={data.join.switch} 
-                onSet={optionSwitch("join")} 
+            <SettingOption
+                id="join"
+                title="join"
+                open={data.join.switch}
+                onSet={optionSwitch("join")}
             >
                 asdas
             </SettingOption>
-            <SettingOption 
-                id="private-message" 
-                title="private message" 
-                open={data["private message"].switch} 
-                onSet={optionSwitch("private message")} 
+            <SettingOption
+                id="private-message"
+                title="private message"
+                open={data["private message"].switch}
+                onSet={optionSwitch("private message")}
             >
             </SettingOption>
-            <SettingOption 
-                id="give-role" 
-                title="give role" 
-                open={data["give role"].switch} 
-                onSet={optionSwitch("give role")} 
+            <SettingOption
+                id="give-role"
+                title="give role"
+                open={data["give role"].switch}
+                onSet={optionSwitch("give role")}
             >
             </SettingOption>
-            <SettingOption 
-                id="leave" 
-                title="leave" 
-                open={data["leave"].switch} 
-                onSet={optionSwitch("leave")} 
+            <SettingOption
+                id="leave"
+                title="leave"
+                open={data["leave"].switch}
+                onSet={optionSwitch("leave")}
             >
             </SettingOption>
         </SettingPage>
