@@ -3,7 +3,7 @@ import { IOSSwitch } from './switch/IOSSwitch';
 import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
 import './sass/settingOption.sass';
 
-const SettingOption = ({ children, title, open, onClose, ...props }) => {
+const SettingOption = ({ children, title, open, onSet, ...props }) => {
 
     const [drop, setDrop] = useState(false);
 
@@ -13,7 +13,9 @@ const SettingOption = ({ children, title, open, onClose, ...props }) => {
             <IOSSwitch
                 checked={Boolean(open)}
                 onClick={() => {
-                    onClose(title);
+                    onSet(title);
+                    if (open)
+                        setDrop(false);
                 }}
             />
             <ArrowLeftIcon
