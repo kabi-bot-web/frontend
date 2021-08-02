@@ -44,7 +44,7 @@ const Welcome = ({ id }) => {
             setData(welcomeData);
         }
     }
-
+    // title 要翻譯
     return (
         <SettingPage id="welcome" fun={init}>
             <SettingOption

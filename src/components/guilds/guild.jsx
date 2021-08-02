@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import KabiAvatar from './avatar';
+import KabiAvatar from '../avatar';
 import { Link } from 'react-router-dom';
 
 const Guild = ({ value, match }) => {
