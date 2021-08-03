@@ -15,7 +15,7 @@ const Menu = ({ menu, id, options, setOptions, setFocus }) => {
     const [dialog, setDialog] = useState(false);
     const history = useHistory();
     const location = useLocation();
-    
+
     useEffect(() => {
         // test
         setGuilds([
@@ -102,6 +102,7 @@ const Menu = ({ menu, id, options, setOptions, setFocus }) => {
                 {options.map((value, index) => {
                     return (
                         <li className="Classification" key={value.name || ''}>
+
                             <input type="checkbox" />
                             <div
                                 className="Drop-down"
@@ -110,8 +111,9 @@ const Menu = ({ menu, id, options, setOptions, setFocus }) => {
                                 <span>{value.name}</span>
                                 <ArrowLeftIcon />
                             </div>
-                            <div 
-                                className="Options" 
+
+                            <div
+                                className="Options"
                                 style={{ height: (menu && value.name !== undefined) ? '' : '100%' }}
                             >
                                 {value.options.map((value2, index2) => {
@@ -124,7 +126,7 @@ const Menu = ({ menu, id, options, setOptions, setFocus }) => {
                                                 (location.pathname === `/dashboard/${useId}/${value2.url}`) ?
                                                     (menu ?
                                                         'Option Option-focus-open' : 'Option Option-focus-close'
-                                                    ) : (menu ? 'Option' : 'Option Option-close') 
+                                                    ) : (menu ? 'Option' : 'Option Option-close')
                                             }
                                             key={value2.name}
                                             onClick={() => {

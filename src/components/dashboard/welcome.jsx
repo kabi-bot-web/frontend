@@ -20,8 +20,7 @@ const Welcome = ({ id }) => {
         }
     });
     const init = async () => {
-        // test
-        setData({
+        return {
             "join": {
                 switch: false
             },
@@ -34,7 +33,7 @@ const Welcome = ({ id }) => {
             "leave": {
                 switch: false
             }
-        });
+        };
         // api
     };
     const optionSwitch = (title) => {
@@ -46,7 +45,7 @@ const Welcome = ({ id }) => {
     }
     // title 要翻譯
     return (
-        <SettingPage id="welcome" fun={init}>
+        <SettingPage id="welcome" initFun={init} data={data}>
             <SettingOption
                 id="join"
                 title="join"
