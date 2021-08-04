@@ -19,7 +19,8 @@ const SettingPage = ({ data, children, initFun = defaultFun, ...props }) => {
     }, []);
 
     useEffect(() => {
-        console.log(initData);
+        console.log(initData === data);
+        JSON.stringify()
     })
 
     return (
@@ -29,7 +30,7 @@ const SettingPage = ({ data, children, initFun = defaultFun, ...props }) => {
             ) : (
                 <div className="setting-page" {...props}>
                     {children}
-                    <div className={(initData !== data) ? 'setting-save-close' : 'setting-save-open'}>
+                    <div className={(JSON.stringify(initData) !== JSON.stringify(data)) ? 'setting-save-open' : 'setting-save-close'}>
                         <div className="Text">
                             Changes detected! Please save or cancel.
                         </div>

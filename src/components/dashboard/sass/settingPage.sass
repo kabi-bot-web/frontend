@@ -1,14 +1,23 @@
-.setting-save-close, .setting-save-close
+.setting-save-close, .setting-save-open
     position: fixed
+    z-index: 99999999
     display: flex
     height: 38px
     background-color: #1a1b20
-    bottom: 20px
     right: 20px
     left: 10px
     flex-grow: 1
     padding: 16px
     color: #ffff
     align-items: center
+    font-size: 17px
     .Text
         flex: 1 1 0%
+.setting-save-close
+    bottom: -70px
+
+.setting-save-open
+    bottom: 20px
+
+.setting-page
+    height: calc( 100% - 62px )
