@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import Button from '@material-ui/core/Button';
 import './sass/settingPage.sass';
 
-const defaultFun = async() => {}
+const defaultFun = async () => { }
 
 const SettingPage = ({ data, children, initFun = defaultFun, ...props }) => {
     let [initData, setInitData] = useState({});
 
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        (async() => {
+        (async () => {
             // eslint-disable-next-line react-hooks/exhaustive-deps
             const reData = await initFun();
             setInitData(reData);
             setLoading(false);
         })();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
@@ -34,6 +35,15 @@ const SettingPage = ({ data, children, initFun = defaultFun, ...props }) => {
                         <div className="Text">
                             Changes detected! Please save or cancel.
                         </div>
+                        <div className="Buttons">
+                            <Button className="button" variant="outlined" color="primary">
+                                Cancel
+                            </Button>
+                            <Button className="button" variant="contained" color="primary">
+                                Save
+                            </Button>
+                        </div>
+
                     </div>
                 </div>
             )
