@@ -45,82 +45,13 @@ const Welcome = ({ id }) => {
     }
     // title 要翻譯
     return (
-        <SettingPage id="welcome" initFun={init} data={data}>
+        <SettingPage id="welcome" initFun={init} data={data} setData={setData}>
             <SettingOption
                 id="join"
                 title="join"
                 open={data.join.switch}
                 onSet={optionSwitch("join")}
             >
-                <div>
-                aaa
-                </div>
-                <div>
-                aaa
-                </div>
-                <div>
-                aaa
-                </div>
-                <div>
-                aaa
-                </div>
-                <div>
-                aaa
-                </div>
-                <div>
-                aaa
-                </div>
-                <div>
-                aaa
-                </div>
-                <div>
-                aaa
-                </div>
-                <div>
-                aaa
-                </div>
-                <div>
-                aaa
-                </div>
-                <div>
-                aaa
-                </div>
-                <div>
-                aaa
-                </div>
-                <div>
-                aaa
-                </div>
-                <div>
-                aaa
-                </div>
-                <div>
-                aaa
-                </div>
-                <div>
-                aaa
-                </div>
-                <div>
-                aaa
-                </div>
-                <div>
-                aaa
-                </div>
-                <div>
-                aaa
-                </div>
-                <div>
-                aaa
-                </div>
-                <div>
-                aaa
-                </div>
-                <div>
-                aaa
-                </div>
-                <div>
-                aaa
-                </div>
                 
             </SettingOption>
             <SettingOption

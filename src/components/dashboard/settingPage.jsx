@@ -5,7 +5,7 @@ import './sass/settingPage.sass';
 
 const defaultFun = async () => { }
 
-const SettingPage = ({ data, children, initFun = defaultFun, ...props }) => {
+const SettingPage = ({ data, setData, saveFun = defaultFun, children, initFun = defaultFun, ...props }) => {
     let [initData, setInitData] = useState({});
 
     const [loading, setLoading] = useState(true);
@@ -20,8 +20,7 @@ const SettingPage = ({ data, children, initFun = defaultFun, ...props }) => {
     }, []);
 
     useEffect(() => {
-        console.log(initData === data);
-        JSON.stringify()
+        console.log(JSON.stringify(initData), JSON.stringify(data));
     })
 
     return (
@@ -37,10 +36,25 @@ const SettingPage = ({ data, children, initFun = defaultFun, ...props }) => {
                             Changes detected! Please save or cancel.
                         </div>
                         <div className="Buttons">
-                            <Button className="button" variant="outlined" color="primary">
+                            <Button 
+                                className="button" 
+                                variant="outlined" 
+                                color="primary"
+                                onClick={() => {
+                                    setData(JSON.parse(JSON.stringify(initData)));
+                                }}
+                            >
                                 Cancel
                             </Button>
-                            <Button className="button" variant="contained" color="primary">
+                            <Button 
+                                className="button" 
+                                variant="contained" 
+                                color="primary"
+                                onClick={() => {
+                                    saveFun();
+                                    setInitData(JSON.parse(JSON.stringify(data)));
+                                }}
+                            >
                                 Save
                             </Button>
                         </div>
