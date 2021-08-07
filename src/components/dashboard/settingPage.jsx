@@ -36,9 +36,9 @@ const SettingPage = ({ data, setData, saveFun = defaultFun, children, initFun = 
                             Changes detected! Please save or cancel.
                         </div>
                         <div className="Buttons">
-                            <Button 
-                                className="button" 
-                                variant="outlined" 
+                            <Button
+                                className="button"
+                                variant="outlined"
                                 color="primary"
                                 onClick={() => {
                                     setData(JSON.parse(JSON.stringify(initData)));
@@ -46,9 +46,9 @@ const SettingPage = ({ data, setData, saveFun = defaultFun, children, initFun = 
                             >
                                 Cancel
                             </Button>
-                            <Button 
-                                className="button" 
-                                variant="contained" 
+                            <Button
+                                className="button"
+                                variant="contained"
                                 color="primary"
                                 onClick={() => {
                                     saveFun();

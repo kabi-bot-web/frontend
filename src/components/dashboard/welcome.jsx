@@ -52,7 +52,7 @@ const Welcome = ({ id }) => {
                 open={data.join.switch}
                 onSet={optionSwitch("join")}
             >
-                
+
             </SettingOption>
             <SettingOption
                 id="private-message"
