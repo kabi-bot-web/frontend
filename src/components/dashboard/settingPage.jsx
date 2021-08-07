@@ -31,6 +31,7 @@ const SettingPage = ({ data, children, initFun = defaultFun, ...props }) => {
             ) : (
                 <div className="setting-page" {...props}>
                     {children}
+                    <div className="block"></div>
                     <div className={(JSON.stringify(initData) !== JSON.stringify(data)) ? 'setting-save-open' : 'setting-save-close'}>
                         <div className="Text">
                             Changes detected! Please save or cancel.

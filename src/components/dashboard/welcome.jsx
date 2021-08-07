@@ -52,7 +52,76 @@ const Welcome = ({ id }) => {
                 open={data.join.switch}
                 onSet={optionSwitch("join")}
             >
-                asdas
+                <div>
+                aaa
+                </div>
+                <div>
+                aaa
+                </div>
+                <div>
+                aaa
+                </div>
+                <div>
+                aaa
+                </div>
+                <div>
+                aaa
+                </div>
+                <div>
+                aaa
+                </div>
+                <div>
+                aaa
+                </div>
+                <div>
+                aaa
+                </div>
+                <div>
+                aaa
+                </div>
+                <div>
+                aaa
+                </div>
+                <div>
+                aaa
+                </div>
+                <div>
+                aaa
+                </div>
+                <div>
+                aaa
+                </div>
+                <div>
+                aaa
+                </div>
+                <div>
+                aaa
+                </div>
+                <div>
+                aaa
+                </div>
+                <div>
+                aaa
+                </div>
+                <div>
+                aaa
+                </div>
+                <div>
+                aaa
+                </div>
+                <div>
+                aaa
+                </div>
+                <div>
+                aaa
+                </div>
+                <div>
+                aaa
+                </div>
+                <div>
+                aaa
+                </div>
+                
             </SettingOption>
             <SettingOption
                 id="private-message"
