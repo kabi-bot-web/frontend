@@ -9,7 +9,7 @@ import kabiImg from '../imgs/kabi.png';
 import { userAPI } from '../js/api';
 import './sass/dashboardMenu.sass'
 
-const Menu = ({ menu, id, options, setOptions, setFocus }) => {
+const Menu = ({ menu, id, options, setOptions, setFocus, focus }) => {
     const [guilds, setGuilds] = useState([]);
     const [useId, setUseId] = useState(id);
     const [dialog, setDialog] = useState(false);
@@ -64,6 +64,7 @@ const Menu = ({ menu, id, options, setOptions, setFocus }) => {
                         onChange={(event) => {
                             setUseId(event.target.value);
                             history.push(`/dashboard/${event.target.value}`);
+                            setFocus([0, 0]);
                         }}
                     >
                         {guilds.map((value) => {
@@ -123,7 +124,7 @@ const Menu = ({ menu, id, options, setOptions, setFocus }) => {
                                     return (
                                         <div
                                             className={
-                                                (location.pathname === `/dashboard/${useId}/${value2.url}`) ?
+                                                (index === focus[0] && index2 === focus[1]) ?
                                                     (menu ?
                                                         'Option Option-focus-open' : 'Option Option-focus-close'
                                                     ) : (menu ? 'Option' : 'Option Option-close')

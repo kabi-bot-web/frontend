@@ -55,6 +55,7 @@ const Guild = () => {
                 options={options} 
                 setOptions={setOptions} 
                 setFocus={setFocus} 
+                focus={focus}
             />
             <div id="Setting" className={menu ? 'Setting-open' : 'Setting-close'}>
                 <div id="Navbar">
