@@ -61,6 +61,7 @@ const Welcome = ({ id }) => {
                     // placeholder="Placeholder"
                     multiline
                     variant="outlined"
+                    rows={5}
                 />
             </SettingOption>
             <SettingOption
