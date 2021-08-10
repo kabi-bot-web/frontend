@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import SettingPage from './settingPage';
 import SettingOption from './option';
+import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles';
 import { welcomeAPI } from '../js/api';
 import './sass/welcome.sass';
 
@@ -42,7 +44,8 @@ const Welcome = ({ id }) => {
             welcomeData[title].switch = !welcomeData[title].switch;
             setData(welcomeData);
         }
-    }
+    };
+
     // title 要翻譯
     return (
         <SettingPage id="welcome" initFun={init} data={data} setData={setData}>
@@ -52,7 +55,13 @@ const Welcome = ({ id }) => {
                 open={data.join.switch}
                 onSet={optionSwitch("join")}
             >
-
+                <TextField
+                    id="outlined-textarea"
+                    label="歡迎文字"
+                    // placeholder="Placeholder"
+                    multiline
+                    variant="outlined"
+                />
             </SettingOption>
             <SettingOption
                 id="private-message"

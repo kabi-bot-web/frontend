@@ -32,7 +32,7 @@ const Main = () => {
                 <div id="Title" onClick={navbarClose}><Link to="/">KABI</Link></div>
                 <ul id="navbar-list" style={{ left: navbar ? '0' : '-50%' }}>
                     <li onClick={navbarClose}>
-                        <Link to="/dashboard">Dashboard</Link>
+                        <Link to="/dashboard">Servers</Link>
                     </li>
                 </ul>
                 <div id="navbar-list-button" style={{ position: navbar ? 'fixed' : 'absolute' }}>
