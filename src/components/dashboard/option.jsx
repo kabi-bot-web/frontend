@@ -13,9 +13,8 @@ const SettingOption = ({ children, title, open, onSet, ...props }) => {
             <IOSSwitch
                 checked={Boolean(open)}
                 onClick={() => {
-                    onSet(title);
-                    if (open)
-                        setDrop(false);
+                    onSet();
+                    setDrop(!open);
                 }}
             />
             <ChevronLeftIcon
