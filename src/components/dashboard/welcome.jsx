@@ -2,37 +2,40 @@ import React, { useState } from 'react';
 import SettingPage from './settingPage';
 import SettingOption from './option';
 import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
 import { welcomeAPI } from '../js/api';
 import './sass/welcome.sass';
 
 const Welcome = ({ id }) => {
     const [data, setData] = useState({
-        "join": {
+        'join': {
+            switch: false,
+            channel: 123213,
+            message: 'GG'
+        },
+        'private message': {
             switch: false
         },
-        "private message": {
+        'give role': {
             switch: false
         },
-        "give role": {
-            switch: false
-        },
-        "leave": {
+        'leave': {
             switch: false
         }
     });
     const init = async () => {
         return {
-            "join": {
+            'join': {
+                switch: false,
+                channel: 123213,
+                message: 'GG'
+            },
+            'private message': {
                 switch: false
             },
-            "private message": {
+            'give role': {
                 switch: false
             },
-            "give role": {
-                switch: false
-            },
-            "leave": {
+            'leave': {
                 switch: false
             }
         };
@@ -59,6 +62,12 @@ const Welcome = ({ id }) => {
                     id="outlined-textarea"
                     label="歡迎文字"
                     // placeholder="Placeholder"
+                    value={data.join.message}
+                    onChange={(event) => {
+                        let message = {...data};
+                        message.join.message = event.target.value;
+                        setData(message);
+                    }}
                     multiline
                     variant="outlined"
                     rows={5}
