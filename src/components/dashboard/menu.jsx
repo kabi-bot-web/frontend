@@ -119,8 +119,9 @@ const Menu = ({ menu, id, options, setOptions, setFocus, focus }) => {
                             >
                                 {value.options.map((value2, index2) => {
 
-                                    if (location.pathname === `/dashboard/${useId}/${value.url}`)
-                                        setFocus([index, index2]);
+                                    if (location.pathname === `/dashboard/${useId}/${value2.url}`)
+                                        if (focus[0] !== index || focus[1] !== index2)
+                                            setFocus([index, index2]);
                                     return (
                                         <div
                                             className={

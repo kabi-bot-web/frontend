@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import SettingPage from './settingPage';
 import SettingOption from './option';
 import TextField from '@material-ui/core/TextField';
+import Select from '@material-ui/core/Select';
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
 import { welcomeAPI } from '../js/api';
 import './sass/welcome.sass';
 
@@ -58,6 +61,22 @@ const Welcome = ({ id }) => {
                 open={data.join.switch}
                 onSet={optionSwitch("join")}
             >
+
+                <FormControl variant="outlined">
+                    <InputLabel htmlFor="outlined-age-native-simple" id="text">頻道</InputLabel>
+                    <Select
+                        label="Age"
+                        inputProps={{
+                            name: 'age',
+                            id: 'outlined-age-native-simple',
+                        }}
+                    >
+                        <option aria-label="None" value="" />
+                        <option value={10}>Ten</option>
+                        <option value={20}>Twenty</option>
+                        <option value={30}>Thirty</option>
+                    </Select>
+                </FormControl>
                 <TextField
                     id="outlined-textarea"
                     label="歡迎文字"

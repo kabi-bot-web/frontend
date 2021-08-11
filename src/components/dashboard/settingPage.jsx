@@ -19,10 +19,6 @@ const SettingPage = ({ data, setData, saveFun = defaultFun, children, initFun = 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    useEffect(() => {
-        console.log(JSON.stringify(initData), JSON.stringify(data));
-    })
-
     return (
         (loading) ?
             (
