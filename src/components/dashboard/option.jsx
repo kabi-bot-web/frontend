@@ -18,7 +18,7 @@ const SettingOption = ({ children, title, open, onSet, ...props }) => {
                 }}
             />
             <ChevronLeftIcon
-                className={drop ? 'open' : 'close'}
+                className={(drop && open) ? 'open' : 'close'}
                 style={{
                     opacity: open ? '1' : '0'
                 }}
@@ -33,8 +33,8 @@ const SettingOption = ({ children, title, open, onSet, ...props }) => {
             <div
                 className="content"
                 style={{
-                    height: drop ? '100%' : '0',
-                    marginTop: drop ? '10px' : '0'
+                    height: (drop && open) ? '100%' : '0',
+                    marginTop: (drop && open) ? '10px' : '0'
                 }}
             >
                 <hr />

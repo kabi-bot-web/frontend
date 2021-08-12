@@ -104,7 +104,7 @@ const Menu = ({ menu, id, options, setOptions, setFocus, focus }) => {
                     return (
                         <li className="Classification" key={value.name || ''}>
 
-                            <input type="checkbox" />
+                            <input type="checkbox" checked="checked"/>
                             <div
                                 className="Drop-down"
                                 style={{ opacity: (menu && value.name !== undefined) ? 1 : 0 }}
