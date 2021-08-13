@@ -78,9 +78,10 @@ const Welcome = ({ id }) => {
                             name: 'age',
                             id: 'outlined-age-native-simple',
                         }}
+                        value={data.join.channel}
                         onChange={(event) => {
                             const channelData = {...data};
-                            channelData.join.channel = event.target.valu;
+                            channelData.join.channel = event.target.value;
                             setData(channelData);
                         }}
                     >
