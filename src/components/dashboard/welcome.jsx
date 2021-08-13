@@ -16,7 +16,8 @@ const Welcome = ({ id }) => {
             message: 'GG'
         },
         'private message': {
-            switch: false
+            switch: false,
+            message: ''
         },
         'give role': {
             switch: false
@@ -41,7 +42,8 @@ const Welcome = ({ id }) => {
                 message: 'GG'
             },
             'private message': {
-                switch: false
+                switch: false,
+                message: ''
             },
             'give role': {
                 switch: false
@@ -71,7 +73,13 @@ const Welcome = ({ id }) => {
             >
 
                 <FormControl variant="outlined">
-                    <InputLabel htmlFor="outlined-age-native-simple" id="text">頻道</InputLabel>
+                    <InputLabel 
+                        htmlFor="outlined-age-native-simple" 
+                        id="text"
+                        // 翻譯
+                    >
+                        頻道
+                    </InputLabel>
                     <Select
                         label="Age"
                         inputProps={{
@@ -98,7 +106,7 @@ const Welcome = ({ id }) => {
                 <TextField
                     id="outlined-textarea"
                     label="歡迎文字"
-                    // placeholder="Placeholder"
+                    // 這裡也要
                     value={data.join.message}
                     onChange={(event) => {
                         let message = {...data};
@@ -116,6 +124,20 @@ const Welcome = ({ id }) => {
                 open={data["private message"].switch}
                 onSet={optionSwitch("private message")}
             >
+                <TextField
+                    id="outlined-textarea"
+                    label="歡迎文字"
+                    // 這裡也要
+                    value={data['private message'].message}
+                    onChange={(event) => {
+                        let message = {...data};
+                        message['private message'].message = event.target.value;
+                        setData(message);
+                    }}
+                    multiline
+                    variant="outlined"
+                    rows={5}
+                />
             </SettingOption>
             <SettingOption
                 id="give-role"
