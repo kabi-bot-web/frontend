@@ -25,6 +25,14 @@ const Welcome = ({ id }) => {
             switch: false
         }
     });
+    const [channels, setChannels] = useState([
+        {name: 'wtf', id: 1},
+        {name: 'wtf', id: 2},
+        {name: 'wtf', id: 3},
+        {name: 'wtf', id: 4},
+        {name: 'wtf', id: 5}
+    ]);
+
     const init = async () => {
         return {
             'join': {
@@ -70,11 +78,20 @@ const Welcome = ({ id }) => {
                             name: 'age',
                             id: 'outlined-age-native-simple',
                         }}
+                        onChange={(event) => {
+                            const channelData = {...data};
+                            channelData.join.channel = event.target.valu;
+                            setData(channelData);
+                        }}
                     >
                         <option aria-label="None" value="" />
-                        <option value={10}>Ten</option>
-                        <option value={20}>Twenty</option>
-                        <option value={30}>Thirty</option>
+                        {channels.map(channel => {
+                            return (
+                                <option value={channel.id} key={channel.id}>
+                                    {channel.name}
+                                </option>
+                            );
+                        })}
                     </Select>
                 </FormControl>
                 <TextField
