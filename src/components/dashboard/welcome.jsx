@@ -5,6 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
+import Roles from './roles/roles';
 // import {welcomeAPI} from '../js/api';
 import './sass/welcome.sass';
 
@@ -21,7 +22,11 @@ const Welcome = () => {
     },
     'give role': {
       switch: false,
-      roles: [],
+      roles: [
+        {name: 'a', id: 1},
+        {name: 'b', id: 2},
+        {name: 'c', id: 3},
+      ],
     },
     'leave': {
       switch: false,
@@ -29,7 +34,7 @@ const Welcome = () => {
   });
 
   const [channels, setChannels] = useState([]);
-  // const [roles, setRoles] = useState([]);
+  const [roles, setRoles] = useState([]);
   const init = async () => {
     setChannels([
       {name: 'wtf', id: 1},
@@ -38,7 +43,11 @@ const Welcome = () => {
       {name: 'wtf', id: 4},
       {name: 'wtf', id: 5},
     ]);
-
+    setRoles([
+      {name: 'a', id: 1},
+      {name: 'b', id: 2},
+      {name: 'c', id: 3},
+    ]);
     return {
       'join': {
         switch: false,
@@ -51,7 +60,11 @@ const Welcome = () => {
       },
       'give role': {
         switch: false,
-        roles: [],
+        roles: [
+          {name: 'a', id: 1},
+          {name: 'b', id: 2},
+          {name: 'c', id: 3},
+        ],
       },
       'leave': {
         switch: false,
@@ -149,6 +162,7 @@ const Welcome = () => {
         open={data['give role'].switch}
         onSet={optionSwitch('give role')}
       >
+        <Roles roles={roles} data={data['give role'].roles} />
       </SettingOption>
       <SettingOption
         id="leave"

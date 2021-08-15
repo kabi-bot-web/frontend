@@ -1,9 +1,33 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
+import {makeStyles} from '@material-ui/core/styles';
+import Chip from '@material-ui/core/Chip';
 
-const Roles = ({ roles, data }) => {
+const defaultFun = () => {
+  return () => {};
+};
+
+const Roles = ({roles, data, delRole = defaultFun, addRole = defaultFun}) => {
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      'display': 'flex',
+      'flexWrap': 'wrap',
+      'backgroundColor': '#1a1b20',
+      'borderRadius': '10px',
+      'padding': '5px',
+      '& > *': {
+        margin: theme.spacing(0.5),
+      },
+    },
+  }))();
+
   return (
-    <div>
-
+    <div className={useStyles.root} >
+      {data.map((role) => {
+        return (
+          <Chip label={role.name} key={role.id} onDelete={delRole(role)}/>
+        );
+      })}
     </div>
   );
 };
