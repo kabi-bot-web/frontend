@@ -17,7 +17,8 @@
 	"extensions": [
 		"dbaeumer.vscode-eslint",
 		"syler.sass-indented",
-		"wscats.eno"
+		"wscats.eno",
+		"burkeholland.simple-react-snippets"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
