@@ -48,7 +48,7 @@ const SettingOption = ({children, title, open, onSet, ...props}) => {
 SettingOption.propTypes = {
   children: PropTypes.any,
   title: PropTypes.string,
-  open: PropTypes.Boolean,
+  open: PropTypes.bool,
   onSet: PropTypes.func,
 };
 
