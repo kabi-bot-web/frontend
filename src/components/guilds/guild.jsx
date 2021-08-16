@@ -1,7 +1,7 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import KabiAvatar from '../avatar';
+import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
 const Guild = ({value, match}) => {
@@ -29,6 +29,14 @@ const Guild = ({value, match}) => {
 
     </div>
   );
+};
+
+Guild.propTypes = {
+  value: PropTypes.objectOf({
+    name: PropTypes.string,
+    id: PropTypes.number,
+  }),
+  match: PropTypes.object,
 };
 
 export default Guild;
