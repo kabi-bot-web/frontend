@@ -1,13 +1,13 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import Chip from '@material-ui/core/Chip';
+import PropTypes from 'prop-types';
 
 const defaultFun = () => {
   return () => {};
 };
 
-const Roles = ({roles, data, delRole = defaultFun, addRole = defaultFun}) => {
+const Roles = ({data, delRole = defaultFun, addRole = defaultFun}) => {
   const useStyles = makeStyles((theme) => ({
     root: {
       'display': 'flex',
@@ -30,6 +30,14 @@ const Roles = ({roles, data, delRole = defaultFun, addRole = defaultFun}) => {
       })}
     </div>
   );
+};
+
+Roles.propTypes = {
+  data: PropTypes.arrayOf({
+    name: PropTypes.string,
+  }),
+  delRole: PropTypes.func,
+  addRole: PropTypes.func,
 };
 
 export default Roles;
