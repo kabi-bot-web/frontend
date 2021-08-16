@@ -1,7 +1,7 @@
-/* eslint-disable react/prop-types */
 import React, {useState} from 'react';
 import {IOSSwitch} from './switch/IOSSwitch';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import PropTypes from 'prop-types';
 import './sass/settingOption.sass';
 
 const SettingOption = ({children, title, open, onSet, ...props}) => {
@@ -43,6 +43,13 @@ const SettingOption = ({children, title, open, onSet, ...props}) => {
       </div>
     </div>
   );
+};
+
+SettingOption.propTypes = {
+  children: PropTypes.any,
+  title: PropTypes.string,
+  open: PropTypess.Boolean,
+  onSet: PropTypes.func,
 };
 
 export default SettingOption;

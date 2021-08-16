@@ -6,6 +6,8 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogActions from '@material-ui/core/DialogActions';
 import Button from '@material-ui/core/Button';
+import PropTypes from 'prop-types';
+
 // 功能開啟彈跳視窗
 const MenuDialog = ({dialog, setDialog, options, setOptions, id, setFocus}) => {
   const history = useHistory();
@@ -59,6 +61,15 @@ const MenuDialog = ({dialog, setDialog, options, setOptions, id, setFocus}) => {
       </DialogActions>
     </StyleDialog>
   );
+};
+
+MenuDialog.propTypes = {
+  dialog: PropTypes.any,
+  setDialog: PropTypes.func,
+  options: PropTypes.array,
+  setOptions: PropTypes.func,
+  id: PropTypes.number,
+  setFocus: PropTypes.func,
 };
 
 export default MenuDialog;

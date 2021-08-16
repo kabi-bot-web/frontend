@@ -1,9 +1,9 @@
 /* eslint-disable object-curly-spacing */
 /* eslint-disable quotes */
 /* eslint-disable max-len */
-/* eslint-disable react/prop-types */
 import {Link, useHistory, useLocation} from 'react-router-dom';
 import React, {useState, useEffect} from 'react';
+import PropTypes from 'prop-types';
 import MenuDialog from './menuDialog';
 import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
 import Avatar from '@material-ui/core/Avatar';
@@ -172,6 +172,15 @@ const Menu = ({menu, id, options, setOptions, setFocus, focus}) => {
       />
     </div>
   );
+};
+
+Menu.propTypes = {
+  menu: PropTypes.array,
+  id: PropTypes.number,
+  options: PropTypes.array,
+  setOptions: PropTypes.func,
+  setFocus: PropTypes.func,
+  focus: PropTypes.array,
 };
 
 export default Menu;

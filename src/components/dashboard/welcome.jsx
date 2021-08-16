@@ -13,8 +13,8 @@ const Welcome = () => {
   const [data, setData] = useState({
     'join': {
       switch: false,
-      channel: 123213,
-      message: 'GG',
+      channel: 0,
+      message: '',
     },
     'private message': {
       switch: false,
@@ -22,11 +22,7 @@ const Welcome = () => {
     },
     'give role': {
       switch: false,
-      roles: [
-        {name: 'a', id: 1},
-        {name: 'b', id: 2},
-        {name: 'c', id: 3},
-      ],
+      roles: [],
     },
     'leave': {
       switch: false,

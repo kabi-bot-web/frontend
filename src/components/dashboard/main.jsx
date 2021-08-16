@@ -1,7 +1,7 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
-import './sass/main.sass';
+import PropTypes from 'prop-types';
 import {IOSSwitch} from './switch/IOSSwitch';
+import './sass/main.sass';
 
 const Main = ({options, setOptions}) => {
   return (
@@ -38,6 +38,11 @@ const Main = ({options, setOptions}) => {
       })}
     </div>
   );
+};
+
+Main.propTypes = {
+  options: PropTypes.array,
+  setOptions: PropTypes.func,
 };
 
 export default Main;

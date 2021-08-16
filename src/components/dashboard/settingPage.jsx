@@ -1,7 +1,7 @@
-/* eslint-disable react/prop-types */
 import React, {useState, useEffect} from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Button from '@material-ui/core/Button';
+import PropTypes from 'prop-types';
 import './sass/settingPage.sass';
 
 const defaultFun = async () => { };
@@ -21,6 +21,7 @@ const SettingPage = ({
     (async () => {
       const reData = await initFun();
       setInitData(reData);
+      setData(JSON.parse(JSON.stringify(reData)));
       setLoading(false);
     })();
   }, []);
@@ -68,6 +69,14 @@ const SettingPage = ({
         </div>
       )
   );
+};
+
+SettingPage.propTypes = {
+  data: PropTypes.object,
+  setData: PropTypes.func,
+  saveFun: PropTypes.func,
+  initFun: PropTypes.func,
+  children: PropTypes.any,
 };
 
 export default SettingPage;
