@@ -29,7 +29,7 @@ KabiAvatar.propTypes = {
     icon: PropTypes.string,
     id: PropTypes.number,
   }),
-  size: PropTyes.number,
+  size: PropTypes.number,
 };
 
 export default KabiAvatar;
