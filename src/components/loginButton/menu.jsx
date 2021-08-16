@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, {useContext} from 'react';
 import {withStyles} from '@material-ui/core/styles';
 import Menu from '@material-ui/core/Menu';
@@ -8,6 +7,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import {Link} from 'react-router-dom';
 import {Lan, Login, UserData} from '../js/Context';
+import PropTypes from 'prop-types';
 import {userAPI} from '../js/api';
 
 const LoginButtonMenu = ({menuSwitch, setMenuSwitch}) => {
@@ -90,6 +90,11 @@ const LoginButtonMenu = ({menuSwitch, setMenuSwitch}) => {
       </MenuItem>
     </StyleMenu>
   );
+};
+
+LoginButtonMenu.propTypes = {
+  menuSwitch: PropTypes.bool,
+  setMenuSwitch: PropTypes.func,
 };
 
 export default LoginButtonMenu;
