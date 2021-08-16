@@ -15,6 +15,7 @@ const Roles = ({data, delRole = defaultFun, addRole = defaultFun}) => {
       'backgroundColor': '#1a1b20',
       'borderRadius': '10px',
       'padding': '5px',
+      'maxWidth': '483px',
       '& > *': {
         margin: theme.spacing(0.5),
       },
