@@ -1,6 +1,6 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
+import PropTypes from 'prop-types';
 
 const KabiAvatar = ({value, size}) => {
   return (
@@ -21,6 +21,15 @@ const KabiAvatar = ({value, size}) => {
       {value.name}
     </Avatar>
   );
+};
+
+KabiAvatar.propTypes = {
+  value: PropTypes.objectOf({
+    name: PropTypes.string,
+    icon: PropTypes.string,
+    id: PropTypes.number,
+  }),
+  size: PropTyes.number,
 };
 
 export default KabiAvatar;
