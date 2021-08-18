@@ -30,7 +30,6 @@ const Welcome = () => {
   });
 
   const [channels, setChannels] = useState([]);
-  const [roles, setRoles] = useState([]);
   const init = async () => {
     setChannels([
       {name: 'wtf', id: 1},
@@ -38,11 +37,6 @@ const Welcome = () => {
       {name: 'wtf', id: 3},
       {name: 'wtf', id: 4},
       {name: 'wtf', id: 5},
-    ]);
-    setRoles([
-      {name: 'a', id: 1},
-      {name: 'b', id: 2},
-      {name: 'c', id: 3},
     ]);
     return {
       'join': {
@@ -158,7 +152,7 @@ const Welcome = () => {
         open={data['give role'].switch}
         onSet={optionSwitch('give role')}
       >
-        <Roles roles={roles} data={data['give role'].roles} />
+        <Roles data={data['give role'].roles} />
       </SettingOption>
       <SettingOption
         id="leave"
