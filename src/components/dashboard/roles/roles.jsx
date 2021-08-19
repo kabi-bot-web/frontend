@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import Chip from '@material-ui/core/Chip';
 import PropTypes from 'prop-types';
+import './roles.sass';
 
 const defaultFun = () => {
   return () => {};
@@ -16,6 +17,7 @@ const Roles = ({data, delRole = defaultFun, addRole = defaultFun}) => {
       'borderRadius': '10px',
       'padding': '5px',
       'maxWidth': '483px',
+      'height': '30px',
       '& > *': {
         margin: theme.spacing(0.5),
       },
@@ -24,7 +26,6 @@ const Roles = ({data, delRole = defaultFun, addRole = defaultFun}) => {
 
 
   const [roles, setRoles] = useState([]);
-
   useEffect(() => {
     setRoles([]);
   }, []);
@@ -37,15 +38,21 @@ const Roles = ({data, delRole = defaultFun, addRole = defaultFun}) => {
             label={role.name}
             key={role.id}
             onDelete={delRole(role)}
+            className="select-roles"
           />
         );
       })}
-      <Chip
-        onClick={() => {
-          // open select menu
-          roles;
-        }}
-      />
+      <div
+        className="roles"
+      >
+        <div id="roles-button">
+          {roles.map((role) => {
+            return (
+              <div key={role.id}>a</div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 };
