@@ -36,6 +36,8 @@ const SettingOption = ({children, title, open, onSet, ...props}) => {
         style={{
           height: (drop && open) ? '100%' : '0',
           marginTop: (drop && open) ? '10px' : '0',
+          opacity: (drop && open) ? '1' : '0',
+          pointerEvents: (drop && open) ? 'auto' : 'none',
         }}
       >
         <hr />

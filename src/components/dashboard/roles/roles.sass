@@ -1,8 +1,18 @@
 .roles
-    width: 32px
-    height: 32px
-    #roles-button:focus
+    display: flex
+    margin: 8.5px
+    width: 15px
+    height: 15px
+    background-color: rgba(148, 148, 148, 0.664)
+    border-radius: 50%
+    position: relative
+    &:focus + #roles-menu
+        position: absolute
+        top: 30px
+        width: 30px
+        height: 30px
         background-color: #ffff
+
 
 .select-roles
     background-color: rgba(31, 33, 41, 0)
@@ -17,6 +27,5 @@
         color: #ffffff81
         width: 15px
         height: 15px
-
         &:hover
             color: #ffff

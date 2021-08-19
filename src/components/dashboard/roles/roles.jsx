@@ -12,9 +12,10 @@ const Roles = ({data, delRole = defaultFun, addRole = defaultFun}) => {
   const useStyles = makeStyles((theme) => ({
     root: {
       'display': 'flex',
+      'position': 'relative',
       'flexWrap': 'wrap',
       'backgroundColor': '#1a1b20',
-      'borderRadius': '10px',
+      'borderRadius': '5px',
       'padding': '5px',
       'maxWidth': '483px',
       'height': '30px',
@@ -44,14 +45,14 @@ const Roles = ({data, delRole = defaultFun, addRole = defaultFun}) => {
       })}
       <div
         className="roles"
-      >
-        <div id="roles-button">
-          {roles.map((role) => {
-            return (
-              <div key={role.id}>a</div>
-            );
-          })}
-        </div>
+        tabIndex="0"
+      ></div>
+      <div id="roles-menu">
+        {roles.map((role) => {
+          return (
+            <div key={role.id}>a</div>
+          );
+        })}
       </div>
     </div>
   );
