@@ -18,7 +18,6 @@ const Roles = ({data, delRole = defaultFun, addRole = defaultFun}) => {
       'borderRadius': '5px',
       'padding': '5px',
       'maxWidth': '483px',
-      'height': '30px',
       '& > .MuiChip-root': {
         margin: theme.spacing(0.5),
         height: '22px',
@@ -60,16 +59,18 @@ const Roles = ({data, delRole = defaultFun, addRole = defaultFun}) => {
       <div
         className="roles"
         tabIndex="0"
-      ></div>
-      <div id="roles-menu">
-        {roles.map((role) => {
-          return (
-            <div key={role.id}>
-              {role.name}
-            </div>
-          );
-        })}
+      >
+        <div id="roles-menu">
+          {roles.map((role) => {
+            return (
+              <div key={role.id}>
+                {role.name}
+              </div>
+            );
+          })}
+        </div>
       </div>
+
     </div>
   );
 };
