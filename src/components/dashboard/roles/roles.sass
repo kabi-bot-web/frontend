@@ -6,12 +6,20 @@
     background-color: rgba(148, 148, 148, 0.664)
     border-radius: 50%
     position: relative
+    
     &:focus + #roles-menu
         position: absolute
-        top: 30px
+        top: 40px
         width: 30px
-        height: 30px
+        height: 100%
         background-color: #ffff
+        z-index: 1
+        display: table  
+        
+#roles-menu
+    overflow: hidden
+    width: 0
+    height: 0
 
 
 .select-roles
@@ -20,9 +28,6 @@
     border-style: solid
     border-width: 1px
     color: #ffff
-    height: 22px
-    &:focus
-        background-color: #fafafa42
     svg
         color: #ffffff81
         width: 15px

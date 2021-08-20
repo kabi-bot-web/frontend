@@ -19,8 +19,15 @@ const Roles = ({data, delRole = defaultFun, addRole = defaultFun}) => {
       'padding': '5px',
       'maxWidth': '483px',
       'height': '30px',
-      '& > *': {
+      '& > .MuiChip-root': {
         margin: theme.spacing(0.5),
+        height: '22px',
+        backgroundColor: 'rgba(31, 33, 41, 0)',
+        color: '#ffff',
+        border: '1px #ffff solid',
+      },
+      '& > .MuiChip-root:focus': {
+        backgroundColor: '#fafafa42',
       },
     },
   }))();
@@ -28,7 +35,14 @@ const Roles = ({data, delRole = defaultFun, addRole = defaultFun}) => {
 
   const [roles, setRoles] = useState([]);
   useEffect(() => {
-    setRoles([]);
+    setRoles([
+      {name: 'a', id: 1},
+      {name: 'b', id: 2},
+      {name: 'v', id: 3},
+      {name: 'd', id: 4},
+      {name: 'e', id: 5},
+      {name: 'f', id: 6},
+    ]);
   }, []);
 
   return (
@@ -50,7 +64,9 @@ const Roles = ({data, delRole = defaultFun, addRole = defaultFun}) => {
       <div id="roles-menu">
         {roles.map((role) => {
           return (
-            <div key={role.id}>a</div>
+            <div key={role.id}>
+              {role.name}
+            </div>
           );
         })}
       </div>
