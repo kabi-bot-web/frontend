@@ -6,7 +6,7 @@
     background-color: rgba(148, 148, 148, 0.664)
     border-radius: 50%
     position: relative
-    
+
     &:focus #roles-menu
         position: absolute
         top: 40px
@@ -15,13 +15,21 @@
         height: 100%
         background-color: #17181E
         z-index: 1
-        display: table  
-        
+        display: table
+
 #roles-menu
     overflow: hidden
     width: 0
     height: 0
+    border-radius: 10px
 
+    div
+        margin: 5px 5px
+        padding: 8px
+        border-radius: 5px
+
+        &:hover
+            background-color: #ffffff1a
 
 .select-roles
     background-color: rgba(31, 33, 41, 0)

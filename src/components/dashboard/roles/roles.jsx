@@ -26,7 +26,7 @@ const Roles = ({data, delRole = defaultFun, addRole = defaultFun}) => {
         border: '1px #ffff solid',
       },
       '& > .MuiChip-root:focus': {
-        backgroundColor: '#fafafa42',
+        backgroundColor: '#fafafa22',
       },
     },
   }))();
