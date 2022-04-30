@@ -1,7 +1,9 @@
+import Top_navigation from "./components/top_nav"
+
 function App() {
   return (
     <div className="w-full h-full">
-      <div className="h-10 bg-black"></div>
+      <Top_navigation />
     </div>
   )
 }
