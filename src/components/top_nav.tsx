@@ -3,11 +3,16 @@ import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
-import MenuIcon from '@mui/icons-material/Menu';
 
-const Top_navigation: FC = () => {
+interface Top_navigation {
+    full: boolean
+}
+
+const Top_navigation: FC<Top_navigation> = ({ full }) => {
     return (
-        <div className="h-16 w-full pl-72 bg-zinc-800 flex grow">
+        <div className={`h-16 w-full bg-zinc-800 flex grow transition-all duration-500 shadow-md ${full ? 'pl-24' :  'pl-72'}`}
+            style={{backgroundColor: 'rgb(24, 26, 27)'}}
+        >
             <div className="h-full w-full flex items-center">
                 <Paper
                     className="hover:w-96 hover:animate-search-input hover:rounded-md animate-search-input2 focus-within:animate-search-input focus-within:rounded-md focus-within:w-96"
