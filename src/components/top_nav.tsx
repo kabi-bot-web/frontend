@@ -11,7 +11,7 @@ interface Top_navigation {
 const Top_navigation: FC<Top_navigation> = ({ full }) => {
     return (
         <div className={`h-16 w-full bg-zinc-800 flex grow transition-all duration-500 shadow-md ${full ? 'pl-24' :  'pl-72'}`}
-            style={{backgroundColor: 'rgb(24, 26, 27)'}}
+            style={{backgroundColor: 'rgb(26, 28, 30)'}}
         >
             <div className="h-full w-full flex items-center">
                 <Paper
