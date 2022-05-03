@@ -26,7 +26,7 @@ const Left_navigation: FC<Left_navigation> = ({ setTopNavFull, topNavFull }) => 
                 </IconButton>
             </div>
             <div className="h-full">
-
+                {/* meun */}
             </div>
         </div>
     );
