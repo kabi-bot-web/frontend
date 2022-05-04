@@ -6,12 +6,18 @@ import Content from './components/content';
 
 function App() {
   const [topNavFull, setTopNavFull] = useState(false);
+  const [leftNavFull, setLeftNavFull] = useState(true);
 
   return (
     <div className="w-full h-full">
       <Top_navigation full={topNavFull} />
-      <Left_navigation topNavFull={topNavFull} setTopNavFull={setTopNavFull} />
-      <Content />
+      <Left_navigation
+        topNavFull={topNavFull}
+        setTopNavFull={setTopNavFull}
+        leftNavFull={leftNavFull}
+        setLeftNavFull={setLeftNavFull}
+      />
+      <Content leftNavFull={leftNavFull}/>
     </div>
   )
 }
