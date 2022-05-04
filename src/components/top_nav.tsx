@@ -27,7 +27,7 @@ const Top_navigation: FC<Top_navigation> = ({ full }) => {
             borderRadius: '50%'
           }}
         >
-          <IconButton sx={{ p: '10px', color: 'inherit' }} aria-label="menu">
+          <IconButton sx={{ p: '10px', color: '#ffffffaa' }} aria-label="menu">
             <SearchIcon />
           </IconButton>
           <InputBase
@@ -38,7 +38,7 @@ const Top_navigation: FC<Top_navigation> = ({ full }) => {
         </Paper>
       </div>
       <div className="h-full w-full">
-
+          {/* avatar and menu */}
       </div>
     </div>
   );
