@@ -15,7 +15,7 @@ const Top_navigation: FC<Top_navigation> = ({ full }) => {
     >
       <div className="h-full w-full flex items-center">
         <Paper
-          className="hover:w-96 hover:animate-search-input hover:rounded-md animate-search-input2 focus-within:animate-search-input focus-within:rounded-md focus-within:w-96"
+          className="hover:w-96 hover:animate-search-input hover:rounded-md animate-search-input2 focus-within:animate-search-input focus-within:rounded-md focus-within:w-96 relative"
           component="form"
           sx={{
             p: '2px 4px',
@@ -35,6 +35,9 @@ const Top_navigation: FC<Top_navigation> = ({ full }) => {
             placeholder="Search Setting"
             inputProps={{ 'aria-label': 'search google maps' }}
           />
+          <div className="absolute w-full h-6 left-0 top-12">
+            {/* item */}
+          </div>
         </Paper>
       </div>
       <div className="h-full w-full">
