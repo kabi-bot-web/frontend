@@ -2,7 +2,9 @@ import { FC } from 'react';
 
 const Dashboard: FC = () => {
   return (
-    <div></div>
+    <div>
+      <h1>123</h1>
+    </div>
   );
 };
 

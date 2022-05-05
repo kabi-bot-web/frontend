@@ -9,24 +9,21 @@ import Collapse from '@mui/material/Collapse';
 import SendIcon from '@mui/icons-material/Send';
 
 interface Left_navigation {
-  setTopNavFull: React.Dispatch<React.SetStateAction<boolean>>;
-  setLeftNavFull: React.Dispatch<React.SetStateAction<boolean>>;
-  topNavFull: boolean;
-  leftNavFull: boolean;
+  setNavFull: React.Dispatch<React.SetStateAction<boolean>>;
+  navFull: boolean;
 }
 
-const Left_navigation: FC<Left_navigation> = ({ setTopNavFull, topNavFull, leftNavFull, setLeftNavFull }) => {
+const Left_navigation: FC<Left_navigation> = ({ navFull, setNavFull }) => {
 
   return (
     <div
-      className={`left-0 top-0 h-full fixed z-10 transition-all duration-500 ${leftNavFull ? 'w-64' : 'w-20'}`}
+      className={`left-0 top-0 h-full fixed z-10 transition-all duration-500 ${navFull ? 'w-64' : 'w-20'}`}
       style={{ backgroundColor: 'rgb(26, 28, 30)' }}
     >
-      <div className={`h-16 flex items-center ${leftNavFull ? 'justify-end pr-5' : 'justify-center'}`}>
+      <div className={`h-16 flex items-center ${navFull ? 'justify-end pr-5' : 'justify-center'}`}>
         <IconButton size="large" style={{ color: '#ffffff' }}
           onClick={() => {
-            setLeftNavFull(!leftNavFull);
-            setTopNavFull(!topNavFull);
+            setNavFull(!navFull);
           }}
         >
           <MenuIcon fontSize="inherit" />

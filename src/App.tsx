@@ -5,19 +5,16 @@ import Left_navigation from './components/left_nav';
 import Content from './components/content';
 
 function App() {
-  const [topNavFull, setTopNavFull] = useState(false);
-  const [leftNavFull, setLeftNavFull] = useState(true);
+  const [navFull, setNavFull] = useState(true);
 
   return (
     <div className="w-full h-full">
-      <Top_navigation full={topNavFull} />
+      <Top_navigation full={navFull} />
       <Left_navigation
-        topNavFull={topNavFull}
-        setTopNavFull={setTopNavFull}
-        leftNavFull={leftNavFull}
-        setLeftNavFull={setLeftNavFull}
+        navFull={navFull}
+        setNavFull={setNavFull}
       />
-      <Content leftNavFull={leftNavFull}/>
+      <Content navFull={navFull}/>
     </div>
   )
 }
