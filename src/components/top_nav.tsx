@@ -45,7 +45,12 @@ const Top_navigation: FC<Top_navigation> = ({ full, author }) => {
       </div>
       <div className="h-full w-full items-center justify-items-end grid mr-10">
         {/* avatar and menu */}
-        <IconButton><Avatar src={author.avatar} /></IconButton>
+        <IconButton>
+          <Avatar
+            src={author.avatar}
+            sx={{ width: 44, height: 44 }}
+          />
+        </IconButton>
       </div>
     </div>
   );

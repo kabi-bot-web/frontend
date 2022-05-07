@@ -6,7 +6,7 @@ import { Author } from './data/author';
 
 function App() {
   const [navFull, setNavFull] = useState(true);
-  const [author, setAuthor] = useState<Author>({});
+  const [author, setAuthor] = useState<Author>({ avatar: 'https://cdn.discordapp.com/avatars/458988300418416640/c3dd597ba056c3552f3c19453b71007e.jpg?size=1024' });
 
   return (
     <div className="w-full h-full">
