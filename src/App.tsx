@@ -11,7 +11,7 @@ function App() {
   // desktop open nav
   useEffect(() => {
     if (document.body.clientWidth > 640) setNavFull(true);
-  });
+  }, []);
 
   return (
     <div className="w-full h-full">
