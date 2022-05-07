@@ -26,7 +26,7 @@ const Top_navigation: FC<Top_navigation> = ({ full, author }) => {
     >
       <div className="h-full w-full flex items-center">
         <Paper
-          className="hover:w-96 hover:animate-search-input hover:rounded-md animate-search-input2 focus-within:animate-search-input focus-within:rounded-md focus-within:w-96 relative"
+          className="hover:w-full hover:animate-search-input hover:rounded-md animate-search-input2 focus-within:animate-search-input focus-within:rounded-md focus-within:w-full relative md:focus-within:w-96 md:hover:w-96"
           component="form"
           sx={{
             p: '2px 4px',
@@ -51,7 +51,7 @@ const Top_navigation: FC<Top_navigation> = ({ full, author }) => {
           </div>
         </Paper>
       </div>
-      <div className="h-full w-full items-center justify-items-end grid mr-10">
+      <div className="h-full w-full items-center justify-items-end grid mr-10 flex-1 md:flex-auto">
         {/* avatar and menu */}
         <IconButton
           onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
