@@ -1,9 +1,14 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
-import { Avatar } from "@mui/material";
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Avatar from "@mui/material/Avatar";
+import LogoutIcon from '@mui/icons-material/Logout';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
 import { Author } from "../data/author";
 
 interface Top_navigation {
@@ -12,6 +17,9 @@ interface Top_navigation {
 }
 
 const Top_navigation: FC<Top_navigation> = ({ full, author }) => {
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+
   return (
     <div className={`h-16 w-full bg-zinc-800 flex grow transition-all duration-500 shadow-md ${full ? 'sm:pl-72 pl-24' : 'pl-24'}`}
       style={{ backgroundColor: 'rgb(26, 28, 30)' }}
@@ -45,12 +53,33 @@ const Top_navigation: FC<Top_navigation> = ({ full, author }) => {
       </div>
       <div className="h-full w-full items-center justify-items-end grid mr-10">
         {/* avatar and menu */}
-        <IconButton>
+        <IconButton
+          onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
+            setAnchorEl(event.currentTarget);
+          }}
+        >
           <Avatar
             src={author.avatar}
             sx={{ width: 44, height: 44 }}
           />
         </IconButton>
+        <Menu
+          anchorEl={anchorEl}
+          open={open}
+          onClose={() => {
+            setAnchorEl(null);
+          }}
+          sx={{ '.MuiPaper-root': { backgroundColor: '#3E3E3E', color: '#ffff' }}}
+        >
+          <MenuItem>
+            <ListItemIcon sx={{ color: '#ffff' }}>
+              <LogoutIcon />
+            </ListItemIcon>
+            <ListItemText>
+              Logout
+            </ListItemText>
+          </MenuItem>
+        </Menu>
       </div>
     </div>
   );
