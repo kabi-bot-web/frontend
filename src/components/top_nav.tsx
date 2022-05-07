@@ -3,12 +3,15 @@ import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
+import { Avatar } from "@mui/material";
+import { Author } from "../data/author";
 
 interface Top_navigation {
-  full: boolean
+  full: boolean;
+  author: Author;
 }
 
-const Top_navigation: FC<Top_navigation> = ({ full }) => {
+const Top_navigation: FC<Top_navigation> = ({ full, author }) => {
   return (
     <div className={`h-16 w-full bg-zinc-800 flex grow transition-all duration-500 shadow-md ${full ? 'sm:pl-72 pl-24' : 'pl-24'}`}
       style={{ backgroundColor: 'rgb(26, 28, 30)' }}
@@ -40,8 +43,9 @@ const Top_navigation: FC<Top_navigation> = ({ full }) => {
           </div>
         </Paper>
       </div>
-      <div className="h-full w-full">
-          {/* avatar and menu */}
+      <div className="h-full w-full items-center justify-items-end grid mr-10">
+        {/* avatar and menu */}
+        <IconButton><Avatar src={author.avatar} /></IconButton>
       </div>
     </div>
   );
