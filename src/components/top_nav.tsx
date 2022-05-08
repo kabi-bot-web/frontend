@@ -10,6 +10,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { Author } from "../data/author";
+import { logout } from "../util/api";
 
 interface Top_navigation {
   full: boolean;
@@ -26,7 +27,7 @@ const Top_navigation: FC<Top_navigation> = ({ full, author }) => {
     >
       <div className="h-full w-full flex items-center">
         <Paper
-          className="hover:w-full hover:animate-search-input hover:rounded-md animate-search-input2 focus-within:animate-search-input focus-within:rounded-md focus-within:w-full relative md:focus-within:w-96 md:hover:w-96"
+          className="hover:w-full hover:animate-search-input hover:rounded-md animate-search-input2 focus-within:animate-search-input focus-within:rounded-md focus-within:w-full relative sm:focus-within:w-96 sm:hover:w-96"
           component="form"
           sx={{
             p: '2px 4px',
@@ -71,7 +72,13 @@ const Top_navigation: FC<Top_navigation> = ({ full, author }) => {
           }}
           sx={{ '.MuiPaper-root': { backgroundColor: '#3E3E3E', color: '#ffff' }}}
         >
-          <MenuItem>
+          <MenuItem
+            onClick={() => {
+              // call logout api
+              author.id ? logout(author.id) : null;
+              // redirect to home page
+            }}
+          >
             <ListItemIcon sx={{ color: '#ffff' }}>
               <LogoutIcon />
             </ListItemIcon>

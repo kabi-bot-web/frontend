@@ -6,11 +6,13 @@ import { Author } from './data/author';
 
 function App() {
   const [navFull, setNavFull] = useState(false);
-  const [author, setAuthor] = useState<Author>({ avatar: 'https://cdn.discordapp.com/avatars/458988300418416640/c3dd597ba056c3552f3c19453b71007e.jpg?size=1024' });
+  const [author, setAuthor] = useState<Author>({});
 
-  // desktop open nav
   useEffect(() => {
+    // desktop open nav
     if (document.body.clientWidth > 640) setNavFull(true);
+    // get author info data
+    setAuthor({ avatar: 'https://cdn.discordapp.com/avatars/458988300418416640/c3dd597ba056c3552f3c19453b71007e.jpg?size=1024' });
   }, []);
 
   return (
