@@ -15,10 +15,10 @@ interface LeftNavigation {
 const LeftNavigation: FC<LeftNavigation> = ({ navFull, setNavFull, navList }) => {
   return (
     <div
-      className={`left-0 top-0 h-full fixed z-10 transition-all duration-500 overflow-hidden ${navFull ? 'sm:w-64 w-full' : 'w-20'}`}
+      className={`left-0 top-0 h-full fixed z-10 transition-all duration-500 ${navFull ? 'sm:w-64 w-full' : 'sm:w-20 w-0'}`}
       style={{ backgroundColor: navFull ? 'rgb(26, 28, 30)' : '' }}
     >
-      <div className={`h-16 flex items-center ${navFull ? 'justify-end pr-5' : 'justify-center'}`}>
+      <div className={`h-16 flex items-center flexed ml-10 sm:ml-0 ${navFull ? 'justify-end pr-5 sm:pr-0 ml-0' : 'justify-center'}`}>
         <IconButton size="large" style={{ color: '#ffffff' }}
           onClick={() => {
             setNavFull(!navFull);

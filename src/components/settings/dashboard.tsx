@@ -1,9 +1,10 @@
+import { Button } from '@mui/material';
 import React, { FC } from 'react';
 
 const Dashboard: FC = () => {
   return (
     <div>
-      <h1>123</h1>
+      <Button>abc</Button>
     </div>
   );
 };
