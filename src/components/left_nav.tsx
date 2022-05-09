@@ -2,7 +2,6 @@ import { FC } from 'react';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import List from '@mui/material/List';
-import SendIcon from '@mui/icons-material/Send';
 import LeftNavigationSubheader from './nav_subdeader';
 import { LeftNavigationGroup } from '../data/nav';
 import NavListGroup from './nav_list_group';
@@ -10,21 +9,10 @@ import NavListGroup from './nav_list_group';
 interface LeftNavigation {
   setNavFull: React.Dispatch<React.SetStateAction<boolean>>;
   navFull: boolean;
+  navList: Array<LeftNavigationGroup>;
 }
 
-const navList: Array<LeftNavigationGroup> = [
-  { groupName: '1', items: [
-    { name: '123',  path: '/', icon: <SendIcon /> },
-    { name: '123',  path: '/1', icon: <SendIcon /> }
-  ] },
-  { groupName: '2', items: [
-    { name: '123',  path: '/2', icon: <SendIcon /> },
-    { name: '123',  path: '/3', icon: <SendIcon /> }
-  ] },
-  { groupName: '3', items: [] }
-];
-
-const LeftNavigation: FC<LeftNavigation> = ({ navFull, setNavFull }) => {
+const LeftNavigation: FC<LeftNavigation> = ({ navFull, setNavFull, navList }) => {
   return (
     <div
       className={`left-0 top-0 h-full fixed z-10 transition-all duration-500 overflow-hidden ${navFull ? 'sm:w-64 w-full' : 'w-20'}`}

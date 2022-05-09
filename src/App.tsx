@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import TopNavigation from './components/top_nav';
 import LeftNavigation from './components/left_nav';
 import Content from './components/content';
+import { navList } from './util/nav';
 import { Author } from './data/author';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
       <LeftNavigation
         navFull={navFull}
         setNavFull={setNavFull}
+        navList={navList}
       />
       <Content navFull={navFull}/>
     </div>
