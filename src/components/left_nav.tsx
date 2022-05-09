@@ -8,13 +8,22 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Collapse from '@mui/material/Collapse';
 import SendIcon from '@mui/icons-material/Send';
+import LeftNavigationSubheader from './navSubdeader';
 
-interface Left_navigation {
+interface LeftNavigation {
   setNavFull: React.Dispatch<React.SetStateAction<boolean>>;
   navFull: boolean;
 }
 
-const Left_navigation: FC<Left_navigation> = ({ navFull, setNavFull }) => {
+interface NavigationOptions {
+
+}
+
+const navList = [
+
+];
+
+const LeftNavigation: FC<LeftNavigation> = ({ navFull, setNavFull }) => {
 
   return (
     <div
@@ -30,21 +39,25 @@ const Left_navigation: FC<Left_navigation> = ({ navFull, setNavFull }) => {
           <MenuIcon fontSize="inherit" />
         </IconButton>
       </div>
-      <List className="h-full shadow-md" style={{ backgroundColor: 'rgb(24, 26, 27)' }}>
+      <List
+        className="h-full shadow-md"
+        style={{ backgroundColor: 'rgb(24, 26, 27)' }}
+        subheader={<LeftNavigationSubheader />}
+      >
         {/* meun */}
-        {/* <ListItemButton
-                    sx={{ color: 'rgba(255,255,255,.8)' }}
-                >
-                    <ListItemIcon
-                        sx={{ color: 'inherit' }}
-                    >
-                        <SendIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Sent mail" />
-                </ListItemButton> */}
+        <ListItemButton
+          sx={{ color: 'rgba(255,255,255,.8)' }}
+        >
+          <ListItemIcon
+            sx={{ color: 'inherit' }}
+          >
+            <SendIcon />
+          </ListItemIcon>
+          <ListItemText primary="Sent mail" />
+        </ListItemButton>
       </List>
     </div>
   );
 };
 
-export default Left_navigation;
+export default LeftNavigation;

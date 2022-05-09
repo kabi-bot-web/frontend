@@ -12,12 +12,12 @@ import ListItemText from '@mui/material/ListItemText';
 import { Author } from "../data/author";
 import { logout } from "../util/api";
 
-interface Top_navigation {
+interface TopNavigation {
   full: boolean;
   author: Author;
 }
 
-const Top_navigation: FC<Top_navigation> = ({ full, author }) => {
+const TopNavigation: FC<TopNavigation> = ({ full, author }) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
@@ -92,4 +92,4 @@ const Top_navigation: FC<Top_navigation> = ({ full, author }) => {
   );
 }
 
-export default Top_navigation;
+export default TopNavigation;
