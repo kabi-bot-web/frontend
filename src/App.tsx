@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import TopNavigation from './components/top_nav';
 import LeftNavigation from './components/left_nav';
 import Content from './components/content';
@@ -26,7 +26,7 @@ function App() {
       />
       <Content navFull={navFull}/>
     </div>
-  )
+  );
 }
 
 export default App;

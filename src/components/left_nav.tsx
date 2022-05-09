@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import List from '@mui/material/List';
@@ -34,7 +34,7 @@ const LeftNavigation: FC<LeftNavigation> = ({ navFull, setNavFull, navList }) =>
       >
         {/* meun */}
         {navList.map((group) => {
-          return <NavListGroup {...group} navFull={navFull} key={group.groupName} />
+          return (<NavListGroup {...group} navFull={navFull} key={group.groupName} />);
         })}
       </List>
     </div>

@@ -7,8 +7,8 @@ export const api = axios.create({
   baseURL: API_URL,
 });
 
-export async function logout(id: string) {
-  await api.put(`/user`);
+export async function logout() {
+  await api.put('/user');
 }
 
 export async function getAuthorInfo() {

@@ -1,4 +1,5 @@
-import { LeftNavigationGroup } from "../data/nav";
+import React from 'react';
+import { LeftNavigationGroup } from '../data/nav';
 import SendIcon from '@mui/icons-material/Send';
 
 export const navList: Array<LeftNavigationGroup> = [

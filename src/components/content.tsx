@@ -1,8 +1,8 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import {
   Routes,
   Route,
-} from "react-router-dom";
+} from 'react-router-dom';
 import Dashboard from './settings/dashboard';
 
 interface Content {

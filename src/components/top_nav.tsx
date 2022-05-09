@@ -1,16 +1,16 @@
-import { FC, useState } from "react";
+import React, { FC, useState } from 'react';
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import Avatar from "@mui/material/Avatar";
+import Avatar from '@mui/material/Avatar';
 import LogoutIcon from '@mui/icons-material/Logout';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import { Author } from "../data/author";
-import { logout } from "../util/api";
+import { Author } from '../data/author';
+import { logout } from '../util/api';
 
 interface TopNavigation {
   full: boolean;
@@ -75,7 +75,7 @@ const TopNavigation: FC<TopNavigation> = ({ full, author }) => {
           <MenuItem
             onClick={() => {
               // call logout api
-              author.id ? logout(author.id) : null;
+              author.id ? logout() : null;
               // redirect to home page
             }}
           >
@@ -90,6 +90,6 @@ const TopNavigation: FC<TopNavigation> = ({ full, author }) => {
       </div>
     </div>
   );
-}
+};
 
 export default TopNavigation;
