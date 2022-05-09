@@ -19,6 +19,9 @@ const LeftNavigation: FC<LeftNavigation> = ({ navFull, setNavFull, navList }) =>
       style={{ backgroundColor: 'rgb(26, 28, 30)' }}
     >
       <div className={`h-16 flex items-center ml-10 sm:ml-0 ${navFull ? 'justify-end pr-5 sm:pr-0 ml-0' : 'justify-center'}`}>
+        <h1 className={`flex-1 overflow-hidden text-white text-xl pl-5 ${navFull ? '' : 'w-0 opacity-0'}`}>
+          {/* TODO: Logo */}
+        </h1>
         <IconButton size="large" style={{ color: '#ffffff' }}
           onClick={() => {
             setNavFull(!navFull);
