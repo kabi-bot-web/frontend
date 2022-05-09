@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import List from '@mui/material/List';
@@ -28,7 +28,7 @@ const LeftNavigation: FC<LeftNavigation> = ({ navFull, setNavFull }) => {
   return (
     <div
       className={`left-0 top-0 h-full fixed z-10 transition-all duration-500 overflow-hidden ${navFull ? 'sm:w-64 w-full' : 'w-20'}`}
-      style={{ backgroundColor: 'rgb(26, 28, 30)' }}
+      style={{ backgroundColor: navFull ? 'rgb(26, 28, 30)' : '' }}
     >
       <div className={`h-16 flex items-center ${navFull ? 'justify-end pr-5' : 'justify-center'}`}>
         <IconButton size="large" style={{ color: '#ffffff' }}
@@ -40,7 +40,7 @@ const LeftNavigation: FC<LeftNavigation> = ({ navFull, setNavFull }) => {
         </IconButton>
       </div>
       <List
-        className="h-full shadow-md"
+        className={`h-full shadow-md transition-all overflow-hidden ${navFull ? '' : 'w-0 sm:w-full'}`}
         style={{ backgroundColor: 'rgb(24, 26, 27)' }}
         subheader={<LeftNavigationSubheader />}
       >
