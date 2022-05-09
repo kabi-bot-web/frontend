@@ -34,7 +34,7 @@ const LeftNavigation: FC<LeftNavigation> = ({ navFull, setNavFull, navList }) =>
       >
         {/* meun */}
         {navList.map((group) => {
-          return (<NavListGroup {...group} navFull={navFull} key={group.groupName} />);
+          return (<NavListGroup {...group} navFull={navFull} key={group.groupName} setNavFull={setNavFull} />);
         })}
       </List>
     </div>

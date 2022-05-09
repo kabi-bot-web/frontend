@@ -12,9 +12,10 @@ import { LeftNavigationGroup } from '../data/nav';
 
 interface NavListGroup extends LeftNavigationGroup {
   navFull: boolean;
+  setNavFull: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const NavListGroup: FC<NavListGroup> = ({ groupName, items, navFull }) => {
+const NavListGroup: FC<NavListGroup> = ({ groupName, items, navFull, setNavFull }) => {
   const [open, setOpen] = useState(true);
 
   useEffect(() => {
@@ -53,6 +54,9 @@ const NavListGroup: FC<NavListGroup> = ({ groupName, items, navFull }) => {
                   ':hover': {
                     backgroundColor: 'rgba(255, 255, 255, 0.05)'
                   }
+                }}
+                onClick={() => {
+                  if (document.body.clientWidth < 640) setNavFull(false); 
                 }}
               >
 
