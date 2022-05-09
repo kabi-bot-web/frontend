@@ -27,7 +27,7 @@ const NavListGroup: FC<LeftNavigationGroup> = ({ groupName, items }) => {
       <Collapse in={open} timeout="auto" unmountOnExit>
         {items.map((item) => {
           const location = useLocation();
-          const bgColor = location.pathname === item.path ? '#ffffff11' : '';
+          const bgColor = location.pathname === item.path ? 'rgba(255, 255, 255, 0.05)' : '';
           return (
             <Link to={item.path}>
               <ListItemButton
@@ -37,7 +37,7 @@ const NavListGroup: FC<LeftNavigationGroup> = ({ groupName, items }) => {
                   backgroundColor: bgColor,
                   borderRadius: '5px',
                   ':hover': {
-                    backgroundColor: '#ffffff11'
+                    backgroundColor: 'rgba(255, 255, 255, 0.05)'
                   }
                 }}
               >
