@@ -1,30 +1,27 @@
 import { FC, useState } from 'react';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import ClearIcon from '@mui/icons-material/Clear';
 import List from '@mui/material/List';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import Collapse from '@mui/material/Collapse';
 import SendIcon from '@mui/icons-material/Send';
 import LeftNavigationSubheader from './nav_subdeader';
+import { LeftNavigationGroup } from '../data/nav';
+import NavListGroup from './nav_list_group';
 
 interface LeftNavigation {
   setNavFull: React.Dispatch<React.SetStateAction<boolean>>;
   navFull: boolean;
 }
 
-interface NavigationOptions {
-
-}
-
-const navList = [
-
+const navList: Array<LeftNavigationGroup> = [
+  { groupName: '123', items: [
+    { name: '123',  path: '/', icon: <SendIcon /> },
+    { name: '123',  path: '/123', icon: <SendIcon /> }
+  ] },
+  { groupName: '123', items: [] },
+  { groupName: '123', items: [] }
 ];
 
 const LeftNavigation: FC<LeftNavigation> = ({ navFull, setNavFull }) => {
-
   return (
     <div
       className={`left-0 top-0 h-full fixed z-10 transition-all duration-500 ${navFull ? 'sm:w-64 w-full' : 'w-20'}`}
@@ -45,16 +42,9 @@ const LeftNavigation: FC<LeftNavigation> = ({ navFull, setNavFull }) => {
         subheader={<LeftNavigationSubheader />}
       >
         {/* meun */}
-        <ListItemButton
-          sx={{ color: 'rgba(255,255,255,.8)' }}
-        >
-          <ListItemIcon
-            sx={{ color: 'inherit' }}
-          >
-            <SendIcon />
-          </ListItemIcon>
-          <ListItemText primary="Sent mail" />
-        </ListItemButton>
+        {navList.map((group) => {
+          return <NavListGroup {...group} />
+        })}
       </List>
     </div>
   );
