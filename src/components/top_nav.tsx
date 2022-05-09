@@ -22,7 +22,7 @@ const TopNavigation: FC<TopNavigation> = ({ full, author }) => {
   const open = Boolean(anchorEl);
 
   return (
-    <div className={`h-16 w-full bg-zinc-800 flex grow transition-all duration-500 shadow-md ${full ? 'sm:pl-72 pl-24' : 'pl-24'}`}
+    <div className={`h-16 w-full bg-zinc-800 flex grow transition-all duration-500 shadow-md after:absolute ${full ? 'sm:pl-72 pl-24' : 'pl-24'}`}
       style={{ backgroundColor: 'rgb(26, 28, 30)' }}
     >
       <div className="h-full w-full flex items-center">

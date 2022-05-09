@@ -10,6 +10,12 @@ import ExpandLess from '@mui/icons-material/ExpandLess';
 import Tooltip from '@mui/material/Tooltip';
 import { LeftNavigationGroup } from '../data/nav';
 
+const mobileAutoCloseNav = (setNavFull: React.Dispatch<React.SetStateAction<boolean>>) => {
+  return () => {
+    if (document.body.clientWidth < 640) setNavFull(false); 
+  };
+};
+
 interface NavListGroup extends LeftNavigationGroup {
   navFull: boolean;
   setNavFull: React.Dispatch<React.SetStateAction<boolean>>;
@@ -44,7 +50,6 @@ const NavListGroup: FC<NavListGroup> = ({ groupName, items, navFull, setNavFull 
           const bgColor = (location.pathname === item.path) && navFull ? 'rgba(255, 255, 255, 0.05)' : '';
           return (
             <Link to={item.path} key={item.path}>
-
               <ListItemButton
                 sx={{
                   color: 'rgba(255,255,255,.8)',
@@ -55,11 +60,8 @@ const NavListGroup: FC<NavListGroup> = ({ groupName, items, navFull, setNavFull 
                     backgroundColor: 'rgba(255, 255, 255, 0.05)'
                   }
                 }}
-                onClick={() => {
-                  if (document.body.clientWidth < 640) setNavFull(false); 
-                }}
+                onClick={mobileAutoCloseNav(setNavFull)}
               >
-
                 <ListItemIcon
                   sx={{ color: 'inherit' }}
                 >
@@ -73,9 +75,7 @@ const NavListGroup: FC<NavListGroup> = ({ groupName, items, navFull, setNavFull 
                   </Tooltip>
                 </ListItemIcon>
                 {navFull ? <ListItemText primary={item.name} /> : null}
-
               </ListItemButton>
-
             </Link>
           );
         })}

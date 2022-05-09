@@ -17,7 +17,7 @@ function App() {
   }, []);
 
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full flex flex-col relative">
       <TopNavigation full={navFull} author={author} />
       <LeftNavigation
         navFull={navFull}

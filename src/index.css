@@ -7,6 +7,13 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background: #1e2122;
+    height: 100%;
+    max-height: 100vh;
+}
+
+#root {
+    height: 100vh;
+    overflow: auto;
 }
 
 code {
