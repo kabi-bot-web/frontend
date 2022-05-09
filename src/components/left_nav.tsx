@@ -17,14 +17,17 @@ const navList: Array<LeftNavigationGroup> = [
     { name: '123',  path: '/', icon: <SendIcon /> },
     { name: '123',  path: '/123', icon: <SendIcon /> }
   ] },
-  { groupName: '123', items: [] },
+  { groupName: '123', items: [
+    { name: '123',  path: '/', icon: <SendIcon /> },
+    { name: '123',  path: '/123', icon: <SendIcon /> }
+  ] },
   { groupName: '123', items: [] }
 ];
 
 const LeftNavigation: FC<LeftNavigation> = ({ navFull, setNavFull }) => {
   return (
     <div
-      className={`left-0 top-0 h-full fixed z-10 transition-all duration-500 ${navFull ? 'sm:w-64 w-full' : 'w-20'}`}
+      className={`left-0 top-0 h-full fixed z-10 transition-all duration-500 overflow-hidden ${navFull ? 'sm:w-64 w-full' : 'w-20'}`}
       style={{ backgroundColor: 'rgb(26, 28, 30)' }}
     >
       <div className={`h-16 flex items-center ${navFull ? 'justify-end pr-5' : 'justify-center'}`}>
@@ -43,7 +46,7 @@ const LeftNavigation: FC<LeftNavigation> = ({ navFull, setNavFull }) => {
       >
         {/* meun */}
         {navList.map((group) => {
-          return <NavListGroup {...group} />
+          return <NavListGroup {...group} navFull={navFull} />
         })}
       </List>
     </div>
