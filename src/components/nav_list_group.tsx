@@ -67,7 +67,7 @@ const NavListGroup: FC<NavListGroup> = ({ groupName, items, navFull, setNavFull 
                     title={item.name} placement="top" arrow disableInteractive
                     disableHoverListener={navFull}
                     disableFocusListener={navFull}
-                    disableTouchListener={navFull}
+                    disableTouchListener
                   >
                     {item.icon}
                   </Tooltip>
