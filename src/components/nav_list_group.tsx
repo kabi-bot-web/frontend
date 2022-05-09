@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
@@ -26,10 +26,20 @@ const NavListGroup: FC<LeftNavigationGroup> = ({ groupName, items }) => {
       </div>
       <Collapse in={open} timeout="auto" unmountOnExit>
         {items.map((item) => {
+          const location = useLocation();
+          const bgColor = location.pathname === item.path ? '#ffffff11' : '';
           return (
             <Link to={item.path}>
               <ListItemButton
-                sx={{ color: 'rgba(255,255,255,.8)', margin: '0 10px' }}
+                sx={{
+                  color: 'rgba(255,255,255,.8)',
+                  margin: '0 10px',
+                  backgroundColor: bgColor,
+                  borderRadius: '5px',
+                  ':hover': {
+                    backgroundColor: '#ffffff11'
+                  }
+                }}
               >
                 <ListItemIcon
                   sx={{ color: 'inherit' }}
