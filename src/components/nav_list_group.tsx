@@ -40,7 +40,7 @@ const NavListGroup: FC<NavListGroup> = ({ groupName, items, navFull }) => {
           const location = useLocation();
           const bgColor = (location.pathname === item.path) && navFull ? 'rgba(255, 255, 255, 0.05)' : '';
           return (
-            <Link to={item.path}>
+            <Link to={item.path} key={item.path}>
               <ListItemButton
                 sx={{
                   color: 'rgba(255,255,255,.8)',

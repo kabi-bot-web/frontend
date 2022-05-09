@@ -13,15 +13,15 @@ interface LeftNavigation {
 }
 
 const navList: Array<LeftNavigationGroup> = [
-  { groupName: '123', items: [
+  { groupName: '1', items: [
     { name: '123',  path: '/', icon: <SendIcon /> },
-    { name: '123',  path: '/123', icon: <SendIcon /> }
+    { name: '123',  path: '/1', icon: <SendIcon /> }
   ] },
-  { groupName: '123', items: [
-    { name: '123',  path: '/', icon: <SendIcon /> },
-    { name: '123',  path: '/123', icon: <SendIcon /> }
+  { groupName: '2', items: [
+    { name: '123',  path: '/2', icon: <SendIcon /> },
+    { name: '123',  path: '/3', icon: <SendIcon /> }
   ] },
-  { groupName: '123', items: [] }
+  { groupName: '3', items: [] }
 ];
 
 const LeftNavigation: FC<LeftNavigation> = ({ navFull, setNavFull }) => {
@@ -46,7 +46,7 @@ const LeftNavigation: FC<LeftNavigation> = ({ navFull, setNavFull }) => {
       >
         {/* meun */}
         {navList.map((group) => {
-          return <NavListGroup {...group} navFull={navFull} />
+          return <NavListGroup {...group} navFull={navFull} key={group.groupName} />
         })}
       </List>
     </div>
