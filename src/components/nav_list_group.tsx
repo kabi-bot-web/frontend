@@ -42,28 +42,35 @@ const NavListGroup: FC<NavListGroup> = ({ groupName, items, navFull }) => {
           const bgColor = (location.pathname === item.path) && navFull ? 'rgba(255, 255, 255, 0.05)' : '';
           return (
             <Link to={item.path} key={item.path}>
-              <Tooltip title={item.name} placement="top" arrow disableInteractive>
-                <ListItemButton
-                  sx={{
-                    color: 'rgba(255,255,255,.8)',
-                    margin: '0 10px',
-                    backgroundColor: bgColor,
-                    borderRadius: '5px',
-                    ':hover': {
-                      backgroundColor: 'rgba(255, 255, 255, 0.05)'
-                    }
-                  }}
-                >
 
-                  <ListItemIcon
-                    sx={{ color: 'inherit' }}
+              <ListItemButton
+                sx={{
+                  color: 'rgba(255,255,255,.8)',
+                  margin: '0 10px',
+                  backgroundColor: bgColor,
+                  borderRadius: '5px',
+                  ':hover': {
+                    backgroundColor: 'rgba(255, 255, 255, 0.05)'
+                  }
+                }}
+              >
+
+                <ListItemIcon
+                  sx={{ color: 'inherit' }}
+                >
+                  <Tooltip
+                    title={item.name} placement="top" arrow disableInteractive
+                    disableHoverListener={navFull}
+                    disableFocusListener={navFull}
+                    disableTouchListener={navFull}
                   >
                     {item.icon}
-                  </ListItemIcon>
-                  {navFull ? <ListItemText primary={item.name} /> : null}
+                  </Tooltip>
+                </ListItemIcon>
+                {navFull ? <ListItemText primary={item.name} /> : null}
 
-                </ListItemButton>
-              </Tooltip>
+              </ListItemButton>
+
             </Link>
           );
         })}
