@@ -8,7 +8,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Collapse from '@mui/material/Collapse';
 import SendIcon from '@mui/icons-material/Send';
-import LeftNavigationSubheader from './navSubdeader';
+import LeftNavigationSubheader from './nav_subdeader';
 
 interface LeftNavigation {
   setNavFull: React.Dispatch<React.SetStateAction<boolean>>;
